@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "dsh",
+  "started": "2026-09-08T18:45:13",
+  "elapsed_s": 30,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": true,
+    "violations": [],
+    "test_tail": "      Tests  8 passed (8)\n   Start at  18:45:44\n   Duration  155ms (transform 29ms, setup 0ms, collect 33ms, tests 3ms, environment 0ms, prepare 55ms)"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "ys be computed on the discounted amount (`subtotal − discount`).\n\n## Fixes (only `src/` files, no test files or `package.json` touched)\n- **`src/currency.ts`**: Removed the USD divide branch; every supported currency now converts via `Math.round(amount * rate * 100) / 100`.\n- **`src/invoice.ts`**: Removed the `discountRate > 0.3` special branch; `taxable` is now always `subtotal − discount`, and the stale comment block was updated to match.\n\n## Verification\n`pnpm test` → **2 test files passed, 8/8 tests passed**. `git status` confirms only `src/currency.ts` and `src/invoice.ts` were modified.\n"
+}

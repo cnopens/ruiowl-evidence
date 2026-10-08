@@ -1,0 +1,16 @@
+{
+  "task": "t2",
+  "tool": "dsh",
+  "started": "2026-09-07T23:52:38",
+  "elapsed_s": 0,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": false,
+    "help_ok": false,
+    "sample_ok": false,
+    "sample_output": ""
+  },
+  "final_pass": false,
+  "workdir": null,
+  "agent_log_tail": "[ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND] No package.json (or package.yaml, or package.json5) was found in \"/private/var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/preflight-t2-dsh-00_2esln\".\n"
+}

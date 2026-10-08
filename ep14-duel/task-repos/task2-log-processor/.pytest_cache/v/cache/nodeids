@@ -1,0 +1,6 @@
+[
+  "tests/test_cli.py::test_parse_emits_json_per_entry",
+  "tests/test_cli.py::test_parse_missing_file_fails_gracefully",
+  "tests/test_cli.py::test_stats_counts_levels_and_total",
+  "tests/test_cli.py::test_stats_on_empty_file"
+]

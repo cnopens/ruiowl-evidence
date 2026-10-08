@@ -1,0 +1,16 @@
+{
+  "task": "t3",
+  "tool": "dsh",
+  "started": "2026-09-08T00:22:40",
+  "elapsed_s": 0,
+  "timed_out": false,
+  "verdict": {
+    "build_ok": true,
+    "test_4_4": true,
+    "grep_clean": false,
+    "grep_hits": "src/config.schema.ts:import { ConfigLoader } from \"./loader\";\nsrc/config.schema.ts:import type { ConfigLoaderOptions } from \"./options\";\nsrc/config.schema.ts: * single entry point instead of juggling a {@link ConfigLoader} themselves.\nsrc/config.schema.ts:  options: ConfigLoaderOptions,\nsrc/config.schema.ts:  LoaderCtor: new (options?: ConfigLoaderOptions) => ConfigLoader = ConfigLoader,\nsrc/util/log.ts:import type { ConfigLoader } from \"../loader\";\nsrc/util/log.ts:export function logLoad(loader"
+  },
+  "final_pass": false,
+  "workdir": null,
+  "agent_log_tail": "\ndsh: MISSING_CREDENTIAL: llm-deepseek: no API key for provider route \"deepseek-official\"; store DEEPSEEK_API_KEY through the credentials service (the web Models page writes it), or export DEEPSEEK_API_KEY in the launching environment\n"
+}

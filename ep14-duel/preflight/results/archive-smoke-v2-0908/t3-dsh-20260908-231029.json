@@ -1,0 +1,16 @@
+{
+  "task": "t3",
+  "tool": "dsh",
+  "started": "2026-09-08T23:09:29",
+  "elapsed_s": 59,
+  "timed_out": false,
+  "verdict": {
+    "build_ok": true,
+    "test_4_4": true,
+    "grep_clean": true,
+    "grep_hits": ""
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "cross the whole repo excluding `pnpm-lock.yaml`/`node_modules` → **zero matches** (exit 1); even the built `dist/` output and `node_modules` contain no occurrence.\n- `pnpm build` → **exit 0** (strict tsc compile).\n- `pnpm test` → **4/4 tests passed** (vitest exit 0).\n\nNote: the runtime `id` string literal necessarily became `ConfigSource:...` since the requirement forbids the \"ConfigLoader\" text in any string/comment; all downstream uses of that string were renamed consistently, and no test asserts the old value, so behavior logic (merging order, caching, invalidation, defaults) is unchanged.\n"
+}

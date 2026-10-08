@@ -1,0 +1,16 @@
+{
+  "task": "t2",
+  "tool": "claude",
+  "started": "2026-09-08T18:50:53",
+  "elapsed_s": 128,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": true,
+    "help_ok": true,
+    "sample_ok": true,
+    "sample_output": "2026-09-07 08:15:30.123 INFO retry attempt failed\n2026-09-07 08:15:31.002 ERROR disk full"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "- **Millisecond storm** — same second with different `.mmm` values collapses into one entry.\n- **`--keep first` / `--keep last`** — `last` preserves the trailing entry's millisecond tail (e.g. `.999`).\n- **Output** — `f\"{ts} {level} {message}\"` (single space). `-o` redirects to file and silences stdout; `removed: N` and `skipped: M` go to stderr (consistent with `stats`).\n- **Format fidelity** — the regex captures message text only (leading whitespace is consumed by `[ \\t]+`), so the re-emitted line uses one space between fields. The dedupe input itself still tolerates any `[ \\t]+` separator.\n[claude-code:unrecognized_model] {\"model\":\"MiniMax-M3[1m]\",\"query_source\":\"generate_session_title\"}\n"
+}

@@ -1,0 +1,20 @@
+{
+  "fetched_pages": 1106,
+  "version_rows": 110574,
+  "unique_servers": 33903,
+  "unique_publishers": 19979,
+  "median_versions_per_server": 1,
+  "servers_with_single_version": 21301,
+  "single_version_share": 0.6283,
+  "top10_publisher_share": 0.1335,
+  "largest_publisher": [
+    [
+      "io.github.sadri-dridi",
+      2341
+    ]
+  ],
+  "remote_capable_servers": 45520,
+  "remote_without_auth_field": 36509,
+  "remote_without_auth_share": 0.802,
+  "snapshot_utc": "2026-09-21T13:11:38Z"
+}

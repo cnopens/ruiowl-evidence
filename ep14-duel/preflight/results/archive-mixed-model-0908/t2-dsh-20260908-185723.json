@@ -1,0 +1,16 @@
+{
+  "task": "t2",
+  "tool": "dsh",
+  "started": "2026-09-08T18:53:40",
+  "elapsed_s": 222,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": true,
+    "help_ok": true,
+    "sample_ok": true,
+    "sample_output": "2026-09-07 08:15:30.123 INFO  retry attempt failed\n2026-09-07 08:15:31.002 ERROR disk full"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "目（畸形行按 parse/stats 惯例跳过），输出去重后的日志行到 stdout，或写入 `-o` 指定文件；文件不存在/写失败返回 exit 1 并输出干净的 `logproc: error:` 信息\n\n**`tests/test_dedupe.py`** — 16 个新测试（CLI 子进程级，风格与基线一致），覆盖：同秒内毫秒不同视为重复（日志风暴）、默认保留首行、`--keep last` 保留末行、跨秒不合并、非相邻同键不合并、级别/消息前 50 字符差异不合并、50 字符截断语义（含恰好 50 字符与更长消息视为重复）、`-o` 输出文件（stdout 为空、输出可再次被 parse 读取）、空文件、畸形行跳过、文件缺失 exit 1、非法 `--keep` exit 2。\n\n**`README.md`** — 补充 `dedupe` 用法说明。\n\n## 验证\n\n```\n$ .venv/bin/python -m pytest -q\n20 passed in 0.64s\n```\n\n验收环境约束均遵守：只用 `.venv/bin/python -m pytest` 跑测试，未删除/重建 `.venv`，未触碰 `tests/test_cli.py`（git status 确认仅有 README、cli.py、core.py 修改及新增 test_dedupe.py）。\n"
+}

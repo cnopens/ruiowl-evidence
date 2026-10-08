@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "claude",
+  "started": "2026-09-07T23:49:43",
+  "elapsed_s": 41,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": true,
+    "violations": [],
+    "test_tail": "      Tests  8 passed (8)\n   Start at  23:50:24\n   Duration  155ms (transform 31ms, setup 0ms, collect 35ms, tests 3ms, environment 0ms, prepare 61ms)"
+  },
+  "final_pass": false,
+  "workdir": null,
+  "agent_log_tail": "USD 是 \"inverted quote\"，结果在 USD 分支里做了除法，得到 `100 / 7.20 ≈ 13.89`。\n\n**修复**：删掉 USD 特例分支，让它和 EUR/JPY/GBP 一样走 `amount × rate`。注释也改成\"rate 的含义是 1 单位外币兑多少 CNY，因此乘\"。\n\n### `src/invoice.ts` — 高折扣率下税基错误\n测试 `discountRate: 0.4` 时期望 `tax = 39`（税基 = `subtotal − discount = 500 − 200 = 300`），但代码在 `discountRate > 0.3` 时把税基强行换成原始 subtotal，导致 `tax = 500 × 0.13 = 65`。README 里也写了\"supplier margin policy\"那段规则，但和测试契约冲突——按要求以测试为准。\n\n**修复**：删掉 `if (req.discountRate > 0.3)` 分支，统一 `taxable = subtotal − discount`，同时简化 docstring。\n\n### 验证\n```\nTest Files  2 passed (2)\n     Tests  8 passed (8)\n```\n\n未改动任何测试文件，也未改动 `package.json`。\n[claude-code:unrecognized_model] {\"model\":\"MiniMax-M3[1m]\",\"query_source\":\"generate_session_title\"}\n"
+}

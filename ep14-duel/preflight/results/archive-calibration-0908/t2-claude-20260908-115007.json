@@ -1,0 +1,16 @@
+{
+  "task": "t2",
+  "tool": "claude",
+  "started": "2026-09-08T11:47:28",
+  "elapsed_s": 159,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": true,
+    "help_ok": true,
+    "sample_ok": true,
+    "sample_output": "2026-09-07 08:15:30.123 INFO  retry attempt failed\n2026-09-07 08:15:31.002 ERROR disk full"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "回 exit code 1\n- malformed 行 stderr 提示 `skipped: N`，不污染 dedup 输出\n\n**`tests/test_dedupe.py`** — 16 个新测试，覆盖：\n- core 单元：key 时间截断、50 字符截断、`keep` 默认/显式、仅相邻合并、不同 level/message 不合并、非法 `keep` 抛 `ValueError`\n- CLI 集成：默认保留首行、`--keep last` 保留末行、`-o` 写文件、长消息按 50 字符判定、非相邻重复保留、空文件、缺文件（exit 1）、非法 `--keep`（exit 2）\n\n## 关键设计决策\n\n1. **仅相邻重复** — 用单遍扫描 + 当前 `run` 缓存实现；非相邻同 key 行不合并，符合\"日志风暴\"语义\n2. **毫秒归一化** — 用字符串 `rsplit` 而不是 `datetime` 解析，避免时区/格式假设；与 `parse_line` 保持纯字符串处理风格一致\n3. **输出格式** — 用 `format_entry` 重新规范化为 `ts LEVEL msg`（level 5 字符左对齐），让测试断言可预测且不依赖原文件空白\n4. **malformed 处理** — 与 `stats` 一致：stderr 计数、stdout 不出现\n[claude-code:unrecognized_model] {\"model\":\"MiniMax-M3[1m]\",\"query_source\":\"generate_session_title\"}\n"
+}

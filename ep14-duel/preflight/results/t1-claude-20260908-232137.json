@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "claude",
+  "started": "2026-09-08T23:19:21",
+  "elapsed_s": 136,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": true,
+    "violations": [],
+    "test_tail": "      Tests  11 passed (11)\n   Start at  23:21:37\n   Duration  222ms (transform 52ms, setup 0ms, collect 94ms, tests 20ms, environment 0ms, prepare 94ms)"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "untRate > 0.3` 时按折扣前原价计税（500×0.13=65），而测试断言税费基数永远是折扣后金额（300×0.13=39）。删除了该分支，税基恒为 `subtotal − discount`。\n\n3. **`src/invoice.ts` — 缺失单价精度校验**：注释声称\"上游已保证整分钱、无需检查\"，但测试要求拒绝 `10.005`/`10.001` 这类超过两位小数的单价。新增了浮点安全的往返比较校验（`Math.round(p*100)/100 !== p`），错误消息含 \"decimal\" 匹配 `/decimal/i`。\n\n4. **`src/index.ts` — 畸形 JSON 返回 HTML 错误页**：注释声称\"错误中间件有意不需要\"，但 API 合同要求所有错误（含 `express.json()` 解析失败）返回 `{ \"error\": string }` JSON。补上了 4 参数错误中间件，把 body-parser 的 `entity.parse.failed`（status 400）翻译成 JSON 响应。\n\n顺带把修复区域里过时的注释改成了与实现一致的说法；`calculateInvoice` 里 `discountRate` 的 `?? 0` 让该函数在直接调用时也类型安全（typecheck 从基线就有的 2 个错误 → 0）。\n[claude-code:unrecognized_model] {\"model\":\"deepseek-v4-flash\",\"query_source\":\"generate_session_title\"}\n"
+}

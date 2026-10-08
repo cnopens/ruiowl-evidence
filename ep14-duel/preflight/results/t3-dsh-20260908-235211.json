@@ -1,0 +1,16 @@
+{
+  "task": "t3",
+  "tool": "dsh",
+  "started": "2026-09-08T23:50:48",
+  "elapsed_s": 81,
+  "timed_out": false,
+  "verdict": {
+    "build_ok": true,
+    "test_4_4": true,
+    "grep_clean": true,
+    "grep_hits": ""
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "e`、注释及字符串\n\n**文档与示例**\n- `README.md`、`docs/api.md`、`examples/usage.md` — 代码片段、`id` 格式说明、选项表、注释全部更新\n- `examples/app.example.json` — `\"class\": \"ConfigSource\"`\n\n**测试**\n- `test/loader.test.ts` — import 与 `new ConfigSource(...)`\n\n## 验证结果\n\n1. **grep 验证**：`grep -rn 'ConfigLoader' .`（排除 `.git`、`node_modules`、`pnpm-lock.yaml`）返回 exit code 1，**零匹配**（含字符串字面量与注释；连编译产物 `dist/` 一并覆盖检查也无残留）。\n2. **build**：`pnpm build`（tsc strict）通过。\n3. **test**：`pnpm test`（vitest）4/4 通过。\n\n一点说明：`telemetry.ts` 中 `loader.id.replace(\"ConfigLoader:\", \"tel:\")` 两侧同步改为 `ConfigSource:`，替换后产出的 `tel:(defaults+env):APP` 结果与改名前完全一致，观测行为不变。\n"
+}

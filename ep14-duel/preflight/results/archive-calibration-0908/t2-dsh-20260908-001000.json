@@ -1,0 +1,16 @@
+{
+  "task": "t2",
+  "tool": "dsh",
+  "started": "2026-09-08T00:09:59",
+  "elapsed_s": 0,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": false,
+    "help_ok": false,
+    "sample_ok": false,
+    "sample_output": ""
+  },
+  "final_pass": false,
+  "workdir": null,
+  "agent_log_tail": "\ndsh: MISSING_CREDENTIAL: llm-deepseek: no API key for provider route \"deepseek-official\"; store DEEPSEEK_API_KEY through the credentials service (the web Models page writes it), or export DEEPSEEK_API_KEY in the launching environment\n"
+}

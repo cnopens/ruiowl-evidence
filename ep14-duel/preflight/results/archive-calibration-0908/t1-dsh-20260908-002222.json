@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "dsh",
+  "started": "2026-09-08T00:22:20",
+  "elapsed_s": 0,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": false,
+    "violations": [],
+    "test_tail": "   Duration  460ms (transform 604ms, setup 0ms, collect 613ms, tests 9ms, environment 0ms, prepare 79ms)\n\n[ELIFECYCLE] Test failed. See above for more details."
+  },
+  "final_pass": false,
+  "workdir": null,
+  "agent_log_tail": "\ndsh: MISSING_CREDENTIAL: llm-deepseek: no API key for provider route \"deepseek-official\"; store DEEPSEEK_API_KEY through the credentials service (the web Models page writes it), or export DEEPSEEK_API_KEY in the launching environment\n"
+}

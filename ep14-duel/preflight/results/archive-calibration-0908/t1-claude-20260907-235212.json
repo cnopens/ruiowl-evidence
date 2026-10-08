@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "claude",
+  "started": "2026-09-07T23:51:20",
+  "elapsed_s": 51,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": true,
+    "violations": [],
+    "test_tail": "      Tests  8 passed (8)\n   Start at  23:52:12\n   Duration  163ms (transform 32ms, setup 0ms, collect 37ms, tests 3ms, environment 0ms, prepare 53ms)"
+  },
+  "final_pass": false,
+  "workdir": null,
+  "agent_log_tail": "ote convention\" but it was wrong: `100 USD × 7.20 = 720.00 CNY`. USD now multiplies like the other currencies.\n\n- **`src/invoice.ts`** — Removed the `discountRate > 0.3` branch that switched the tax base to the full subtotal. Tax is now always computed on `subtotal − discount`, matching the test expectation (`500 × 0.4` discount → tax base 300 → tax 39). Also rewrote the docblock to describe the corrected behavior.\n\n- **`README.md`** — Updated the pricing rules section to match the corrected, tested behavior.\n\nNo test files or `package.json` were modified.\n\nTest result: `Tests  8 passed (8)`.\n[claude-code:unrecognized_model] {\"model\":\"MiniMax-M3[1m]\",\"query_source\":\"generate_session_title\"}\n"
+}

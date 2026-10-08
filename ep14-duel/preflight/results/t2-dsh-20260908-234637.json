@@ -1,0 +1,19 @@
+{
+  "task": "t2",
+  "tool": "dsh",
+  "started": "2026-09-08T23:39:09",
+  "elapsed_s": 446,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": true,
+    "help_ok": true,
+    "sample_ok": true,
+    "pipe_ok": true,
+    "perf_ok": true,
+    "perf_elapsed_s": 0.1,
+    "sample_output": "2026-09-07 08:15:30.123 INFO  retry attempt failed\n2026-09-07 08:15:31.002 ERROR disk full"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": " 26 tests (30 total, all green via `.venv/bin/python -m pytest`): keep first/last, ms-ignoring, second-boundary keys, adjacency, level in key, 50-char message key (shared prefix merges / divergence before char 50 doesn't), malformed-line handling, empty file / missing final newline, missing file (rc 1) / bad `--keep` (rc 2), `-o` semantics, parse/stats pipe consumption, `-` and `/dev/stdin`, CRLF input, core unit tests, and two 100k-line scale tests. The pre-provisioned `.venv/` was used as-is for all runs.\n\nFinal run: `30 passed in 1.32s` (baseline `tests/test_cli.py` untouched and passing).\n"
+}

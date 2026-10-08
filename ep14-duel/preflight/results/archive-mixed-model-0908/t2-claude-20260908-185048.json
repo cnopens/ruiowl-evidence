@@ -1,0 +1,16 @@
+{
+  "task": "t2",
+  "tool": "claude",
+  "started": "2026-09-08T18:49:51",
+  "elapsed_s": 56,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": true,
+    "help_ok": true,
+    "sample_ok": true,
+    "sample_output": "{\"ts\": \"2026-09-07 08:15:30.123\", \"level\": \"INFO\", \"message\": \"retry attempt failed\"}\n{\"ts\": \"2026-09-07 08:15:31.002\", \"level\": \"ERROR\", \"message\": \"disk full\"}"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "\n- 走相邻遍历，把\"键改变\"作为 run 边界；`keep=\"first\"` 留首行、`keep=\"last\"` 留末行\n- 非法 `keep` 抛 `ValueError`\n\n**`logproc/cli.py`** — 新增 `cmd_dedupe` + `dedupe` 子命令：\n- `dedupe <file> [--keep first|last] [-o OUTPUT]`\n- 输出格式与 `parse` 对齐（一行一 JSON），写文件时也保证末尾有换行\n- `-o` 给定时 `print` 不写 stdout，文件被创建/覆盖\n- 文件不存在走现有 `FileNotFoundError` 通道返回 1，`--keep` 非法由 argparse 返回 2\n\n**`tests/test_dedupe.py`** — 10 个新测试覆盖：同秒日志风暴折叠、`--keep first`/`last` 各自保留正确时间戳、不同秒不折叠、消息前 50 字符截断判定、仅折叠相邻 run（中间异级隔断时两端都保留）、`-o` 写入文件且 stdout 静默、畸形行被跳过、缺文件失败、空文件输出空、`--keep` 非法值返回 2。\n\n**未改动**：`parse`/`stats` 子命令、`test_cli.py` 基线测试、`.venv/`、`pyproject.toml`。\n[claude-code:unrecognized_model] {\"model\":\"MiniMax-M3[1m]\",\"query_source\":\"generate_session_title\"}\n"
+}

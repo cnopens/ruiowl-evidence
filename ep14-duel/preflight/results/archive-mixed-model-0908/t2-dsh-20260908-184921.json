@@ -1,0 +1,16 @@
+{
+  "task": "t2",
+  "tool": "dsh",
+  "started": "2026-09-08T18:46:02",
+  "elapsed_s": 198,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": true,
+    "help_ok": true,
+    "sample_ok": true,
+    "sample_output": "2026-09-07 08:15:30.123 INFO  retry attempt failed\n2026-09-07 08:15:31.002 ERROR disk full"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "FILE]\n```\n- `--keep`：`first`（默认）/`last`，重复组保留首行或末行；非法值由 argparse 以退出码 2 拒绝。\n- `-o/--output FILE`：写入文件（stdout 无输出）；缺省写 stdout。缺失输入文件与既有命令一致以退出码 1、stderr 报 `no such file`。\n- 行尾保持原样（含末行无换行的情况），保证输出仍是可被 parse/stats 消费的日志。\n- parse/stats 子命令与 `main()` 结构未改动，基线测试原样通过。\n\n**`README.md`** — 补充 `dedupe` 用法与语义说明。\n\n**`tests/test_dedupe.py`**（新增，未触碰基线 `tests/test_cli.py`）— 覆盖：核心键构造（毫秒忽略、消息 50 字符截断）、首/末行保留、跨秒不合并、非相邻重复不合并、级别/消息差异不合并、消息 50 字符内相同则合并、`-o`/`--output` 写文件、输出可被 parse 再解析且 dedupe 幂等、malformed 行透传、空文件、缺文件、非法 `--keep`、`--help` 等。\n\n验证命令（唯一验收环境）：\n```\n.venv/bin/python -m pytest   # 23 passed in 0.68s\n```\n"
+}

@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "dsh",
+  "started": "2026-09-08T06:36:27",
+  "elapsed_s": 55,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": true,
+    "violations": [],
+    "test_tail": "      Tests  8 passed (8)\n   Start at  06:37:22\n   Duration  171ms (transform 30ms, setup 0ms, collect 34ms, tests 3ms, environment 0ms, prepare 62ms)"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "in policy\" charged tax on the *full* subtotal whenever `discountRate > 0.3`. The test explicitly requires tax always on the discounted amount (\"Tax base must be subtotal − discount = 300, never the full subtotal\"). Removed the branch so `taxable = subtotal − discount` unconditionally. I also defaulted `req.discountRate` to `0` locally, which clears the pre-existing `tsc` strict-nullability error on the optional field.\n\n## Verification\n\n- `pnpm test` → **8/8 tests pass** (2 test files)\n- `pnpm typecheck` → clean\n\nOnly `src/currency.ts` and `src/invoice.ts` were changed (`git status` confirms).\n"
+}

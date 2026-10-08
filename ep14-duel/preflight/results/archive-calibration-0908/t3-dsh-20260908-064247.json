@@ -1,0 +1,16 @@
+{
+  "task": "t3",
+  "tool": "dsh",
+  "started": "2026-09-08T06:41:35",
+  "elapsed_s": 71,
+  "timed_out": false,
+  "verdict": {
+    "build_ok": true,
+    "test_4_4": true,
+    "grep_clean": true,
+    "grep_hits": ""
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "ns`）、`src/config.ts`、`src/config.schema.ts`（含 `loadValidated` 的 `LoaderCtor` 签名）、`src/util/log.ts`（`import type` 与 `logLoad` 参数）、`test/loader.test.ts`（测试引用）全部改为新名称\n\n**文档**\n- `README.md` — Quick start 示例、`ConfigSourceOptions` 选项表、public surface 清单及 `loader.id` 输出注释全部更新\n- 各文件 JSDoc `{@link ...}` 与说明文字同步为新名称\n\n**行为逻辑**未做任何改动；唯一随之变化的输出是 `id` getter 中的字符串前缀由 `ConfigLoader:` 变为 `ConfigSource:`（否则该字符串会使 grep 不通过，且 README 中对应的示例输出注释也需一致），它仅用于缓存键与调试标签，非对外语义行为。\n\n## 验证结果\n\n- ✅ grep `ConfigLoader`（含字符串与注释）→ **No matches found**（全仓库零残留）\n- ✅ `pnpm build`（tsc，strict 模式）→ 通过\n- ✅ `pnpm test`（vitest）→ **4/4 通过**\n"
+}

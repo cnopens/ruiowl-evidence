@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "claude",
+  "started": "2026-09-07T23:33:50",
+  "elapsed_s": 192,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": false,
+    "violations": [],
+    "test_tail": "   Duration  490ms (transform 601ms, setup 0ms, collect 610ms, tests 9ms, environment 0ms, prepare 74ms)\n\n[ELIFECYCLE] Test failed. See above for more details."
+  },
+  "final_pass": false,
+  "workdir": null,
+  "agent_log_tail": "API Error: Connection refused — a firewall or proxy may be blocking it (ConnectionRefused)\n[claude-code:unrecognized_model] {\"model\":\"qwen/qwen3-coder-30b\",\"query_source\":\"generate_session_title\"}\n"
+}

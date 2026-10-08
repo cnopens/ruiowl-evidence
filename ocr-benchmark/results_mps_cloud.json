@@ -1,0 +1,133 @@
+{
+  "engine": "mps",
+  "backend": "cuda",
+  "device_info": {
+    "backend": "cuda",
+    "device_name": "NVIDIA GeForce RTX 4090",
+    "vram_total_gb": 25.4,
+    "cuda_version": "12.4"
+  },
+  "timestamp": "2026-07-26T23:38:10",
+  "test_dir": "test_images",
+  "test_images": [
+    "test_images/A1_simple_en.png",
+    "test_images/A2_simple_cn.png",
+    "test_images/B1_financial_table.png",
+    "test_images/C1_academic_paper.png",
+    "test_images/D1_multi_page_doc.png",
+    "test_images/D2_invoice.png",
+    "test_images/D3_contract.png",
+    "test_images/D4_annotated_paper.png",
+    "test_images/D5_mixed_report.png",
+    "test_images/PDF_page_1.png",
+    "test_images/PDF_page_2.png",
+    "test_images/PDF_page_3.png"
+  ],
+  "results": [
+    {
+      "image": "A1_simple_en.png",
+      "category": "simple_en",
+      "time_seconds": 5.314,
+      "peak_vram_gb": 7.26,
+      "output_text": "<|det|>title [33, 64, 801, 158]<|/det|>Unlimited OCR Benchmark Test\n<|det|>text [33, 172, 999, 252]<|/det|>This is a simple printed text document for OCR accuracy te\n<|det|>text [33, 252, 770, 310]<|/det|>The quick brown fox jumps over the lazy dog.\n<|det|>text [33, 310, 865, 370]<|/det|>Hello World! This is a test of basic OCR capabilities.\n<|det|>text [33, 370, 802, 428]<|/det|>Line 5: Numerical values 12345 67890 3.14159\n<|det|>text [33, 428, 761, 498]<|/det|>Line 6: Mixed Case TeXt with Symb",
+      "has_structure": false
+    },
+    {
+      "image": "A2_simple_cn.png",
+      "category": "other",
+      "time_seconds": 4.797,
+      "peak_vram_gb": 7.26,
+      "output_text": "<|det|>title [37, 60, 361, 160]<|/det|>OCR 基准测试\n<|det|>text [34, 168, 728, 240]<|/det|>这是一份用于测试 OCR 识别准确率的中文文档。\n<|det|>text [35, 237, 595, 305]<|/det|>锐Owl 品牌专注于 AI 系统的效率评估。\n<|det|>text [35, 301, 781, 370]<|/det|>百度于 2026 年 6 月发布了 Unlimited-OCR 模型。\n<|det|>text [35, 365, 834, 435]<|/det|>该模型基于 DeepSeek V2 架构，采用 MoE 路由机制。\n<|det|>text [35, 429, 714, 498]<|/det|>数字测试：三千二百零一 98765 百分之八十五",
+      "has_structure": false
+    },
+    {
+      "image": "B1_financial_table.png",
+      "category": "table",
+      "time_seconds": 11.575,
+      "peak_vram_gb": 9.65,
+      "output_text": "<|det|>title [30, 39, 354, 93]<|/det|>证券投资组合报告\n<|det|>text [30, 94, 256, 123]<|/det|>报告日期：2026-07-20\n<|det|>table [30, 133, 554, 410]<|/det|><table><tr><td>代码</td><td>名称</td><td>持仓量</td><td>现价</td><td>市值</td><td>盈亏(%)</td></tr><tr><td>60051</td><td>贵州茅台</td><td>1,200</td><td>1,468.50</td><td>1,762,200</td><td>+12.35</td></tr><tr><td>00085</td><td>五粮液</td><td>3,500</td><td>128.60</td><td>450,100</td><td>-3.21</td></tr><tr><td>60131</td><td>中国平安</td><td>5,000</td><td>42.35</td><td>211,750</td><td>",
+      "has_structure": true
+    },
+    {
+      "image": "C1_academic_paper.png",
+      "category": "paper",
+      "time_seconds": 8.488,
+      "peak_vram_gb": 8.08,
+      "output_text": "<|det|>title [27, 30, 116, 58]<|/det|>Abstract\n<|det|>text [27, 62, 323, 205]<|/det|>This paper presents a novel approach to long-horizon document parsing using Reference Sliding Window Attention. Our method achieves 93.23% on OmniDocBench with only 500M active parameters.\n<|det|>title [27, 214, 175, 243]<|/det|>1. Introduction\n<|det|>text [27, 243, 300, 364]<|/det|>Transformer-based OCR models face a fundamental challenge: KV cache grows linearly with sequence length, making long-document proce",
+      "has_structure": false
+    },
+    {
+      "image": "D1_multi_page_doc.png",
+      "category": "multipage",
+      "time_seconds": 23.799,
+      "peak_vram_gb": 8.65,
+      "output_text": "<|det|>header [62, 12, 588, 22]<|/det|>OCR Benchmark Test Document\n<|det|>title [62, 29, 143, 35]<|/det|>Abstract\n<|det|>text [61, 36, 543, 53]<|/det|>This document is designed to test OCR accuracy across different engines. It contains mixed Chinese and English text, numerical data, and structured layouts typical of real-world documents.\n<|det|>title [62, 56, 194, 62]<|/det|>1. Introduction\n<|det|>text [61, 63, 477, 75]<|/det|>光学字符识别（OCR）技术在过去十年取得了巨大进步。从传统的图像处理方法到现代的深度学习模型，OCR的准确率已经\n<|det|>text ",
+      "has_structure": true
+    },
+    {
+      "image": "D2_invoice.png",
+      "category": "invoice",
+      "time_seconds": 19.248,
+      "peak_vram_gb": 7.57,
+      "output_text": "<|det|>header [159, 9, 517, 37]<|/det|>深圳海纳科技有限公司\n<|det|>header [724, 15, 806, 36]<|/det|>发票联\n<|det|>text [62, 66, 250, 81]<|/det|>发票代码：4400210001\n<|det|>text [64, 83, 264, 99]<|/det|>发票号码：No. 20260788\n<|det|>text [64, 101, 278, 116]<|/det|>开票日期：2026年07月24日\n<|det|>text [546, 67, 759, 81]<|/det|>密码区：7589-2341-8876-4532\n<|det|>text [60, 129, 337, 146]<|/det|>购买方：北京锐意科技有限公司\n<|det|>text [62, 147, 367, 162]<|/det|>纳税人识别号：91110108MA789012X\n<|det|>text [544, 129, 821, 146]<|/det|>销售方：深圳海纳科技有限公司\n<|det|>",
+      "has_structure": true
+    },
+    {
+      "image": "D3_contract.png",
+      "category": "other",
+      "time_seconds": 25.306,
+      "peak_vram_gb": 7.57,
+      "output_text": "<|det|>header [159, 26, 435, 53]<|/det|>技术服务合同\n<|det|>header [200, 56, 458, 71]<|/det|>Technology Service Agreement\n<|det|>text [44, 83, 258, 98]<|/det|>合同编号：TSA-2026-0789\n<|det|>text [46, 100, 251, 116]<|/det|>签署日期：2026年7月20日\n<|det|>text [44, 129, 397, 147]<|/det|>甲方（委托方）：北京锐意科技有限公司\n<|det|>text [46, 150, 361, 165]<|/det|>地址：北京市海淀区中关村科技园A座1208\n<|det|>text [46, 168, 195, 183]<|/det|>法定代表人：赵明远\n<|det|>text [45, 197, 397, 215]<|/det|>乙方（服务方）：深圳海纳科技有限公司\n<|det|>text [46, 220, 296, 235]<|/det|>地址：深圳市南山",
+      "has_structure": false
+    },
+    {
+      "image": "D4_annotated_paper.png",
+      "category": "paper",
+      "time_seconds": 201.091,
+      "peak_vram_gb": 7.57,
+      "output_text": "<|det|>title [157, 22, 605, 48]<|/det|>Attention Is All You Need\n<|det|>text [239, 48, 378, 61]<|/det|>— 阅读笔记与批注\n<|det|>title [44, 73, 135, 89]<|/det|>Abstract\n<|det|>text [42, 95, 756, 158]<|/det|>The dominant sequence transduction models are based on complex 的开创性论文 recurrent or convolutional neural networks that include a framework to detect 超10万次 and a decoder. The best performing models also connect the emerging framework to the encoder and decoder through an attention mechanism. → transform",
+      "has_structure": false
+    },
+    {
+      "image": "D5_mixed_report.png",
+      "category": "other",
+      "time_seconds": 19.689,
+      "peak_vram_gb": 7.57,
+      "output_text": "<|det|>title [157, 22, 717, 49]<|/det|>AI System Performance Report\n<|det|>text [158, 48, 393, 61]<|/det|>AI系统性能评估报告（2026Q3）\n<|det|>text [45, 79, 357, 96]<|/det|>System Configuration / 系统配置\n<|det|>table [45, 100, 615, 216]<|/det|><table><tr><td>Component</td><td>Specification</td><td>数量</td><td>备注</td></tr><tr><td>CPU</td><td>Apple M5 Pro (12C)</td><td>1</td><td>ARM架构</td></tr><tr><td>GPU</td><td>Integrated (M5 Pro)</td><td>1</td><td>统一内存架构</td></tr><tr><td>Memory</td><td>48GB LPDDR6</td><td>-</",
+      "has_structure": true
+    },
+    {
+      "image": "PDF_page_1.png",
+      "category": "multipage",
+      "time_seconds": 5.837,
+      "peak_vram_gb": 7.57,
+      "output_text": "<|det|>header [61, 33, 588, 58]<|/det|>OCR Benchmark Test Document\n<|det|>title [61, 90, 144, 105]<|/det|>Abstract\n<|det|>text [60, 112, 544, 158]<|/det|>This document is designed to test OCR accuracy across different engines. It contains mixed Chinese and English text, numerical data, and structured layouts typical of real-world documents.\n<|det|>title [62, 170, 194, 184]<|/det|>1. Introduction\n<|det|>text [60, 191, 477, 238]<|/det|>光学字符识别（OCR）技术在过去十年取得了巨大进步。从传统的图像处理方法到现代的深度学习模型，OCR的准确率已经达到了实用水",
+      "has_structure": false
+    },
+    {
+      "image": "PDF_page_2.png",
+      "category": "multipage",
+      "time_seconds": 9.146,
+      "peak_vram_gb": 7.57,
+      "output_text": "<|det|>title [61, 33, 315, 49]<|/det|>2. Performance Comparison\n<|det|>text [61, 60, 360, 74]<|/det|>Table 1: OCR Engine Benchmark Results\n<|det|>table [62, 82, 581, 196]<|/det|><table><tr><td>Engine</td><td>CER(%)</td><td>Speed(s)</td><td>Lang Support</td></tr><tr><td>Tesseract</td><td>5.2</td><td>1.8</td><td>100+</td></tr><tr><td>PaddleOCR</td><td>3.8</td><td>2.5</td><td>80+</td></tr><tr><td>Unlimited-OCR</td><td>0.0</td><td>6.6</td><td>10+</td></tr><tr><td>EasyOCR</td><td>4.5</td><td>3.2</td>",
+      "has_structure": true
+    },
+    {
+      "image": "PDF_page_3.png",
+      "category": "multipage",
+      "time_seconds": 8.13,
+      "peak_vram_gb": 7.57,
+      "output_text": "<|det|>title [60, 33, 214, 49]<|/det|>4. Code Example\n<|det|>text [61, 60, 393, 74]<|/det|>以下代码展示了如何使用 Python 调用 OCR 引擎:\n<|det|>text [76, 88, 377, 264]<|/det|>from unlimited_ocr import UnlimitedOCR\nmodel = UnlimitedOCR()\nresult = model.parse('document.pdf')\nprint(result.text)\n\n# Alternative: PaddleOCR\nfrom paddleocr import PaddleOCR\nocr = PaddleOCR(lang='ch')\nresult = ocr.predict('page.png')\nfor item in result:\n    print(item.rec_texts)\n<|det|>title [61, 283, 185, 297]<|/det|>5. Conclusion\n<|det",
+      "has_structure": false
+    }
+  ],
+  "summary": {
+    "total_images": 12,
+    "successful": 12,
+    "failed": 0,
+    "avg_time_per_image_seconds": 28.535,
+    "peak_vram_gb": 9.65,
+    "deploy_time_minutes": 0.18,
+    "deploy_time_seconds": 10.9
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "task": "t2",
+  "tool": "dsh",
+  "started": "2026-09-08T11:43:31",
+  "elapsed_s": 197,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": true,
+    "help_ok": true,
+    "sample_ok": true,
+    "sample_output": "2026-09-07 08:15:30.123 INFO  retry attempt failed\n2026-09-07 08:15:31.002 ERROR disk full"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "r`，对缺失文件的报错信息/退出码完全一致）：\n- `logproc dedupe [--keep first|last] [-o FILE] FILE`：`--keep` 默认 `first`（choices 校验，非法值退出码 2）；无 `-o` 时去重后的日志行写 stdout，有 `-o FILE` 时写入文件且 stdout 为空；输入文件不存在/输出路径不可写时优雅报错并返回 1。\n\n**`tests/test_dedupe.py`** — 覆盖：精确相邻重复折叠、默认与显式 `--keep first`、`--keep last` 保留组末行、同秒不同毫秒视为风暴折叠、跨秒不合并、级别参与判重、消息第 50 字符边界（前 50 相同即重复 / 第 50 字符不同则保留）、仅相邻重复折叠、malformed 行透传并阻断相邻、`-o` 输出与 stdout 一致、空文件、长风暴单组折叠、缺文件/输出路径错误退出码、非法 `--keep` 退出码 2。\n\n**`README.md`** — 补充 `dedupe` 命令文档（判重规则、keep 语义、malformed 行策略）。\n\n验收方式严格按要求执行：仅使用预置 `.venv/bin/python -m pytest` 运行，`.venv` 未删除/重建，基线 `tests/test_cli.py` 未做任何修改。\n"
+}

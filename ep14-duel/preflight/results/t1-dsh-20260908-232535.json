@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "dsh",
+  "started": "2026-09-08T23:21:38",
+  "elapsed_s": 237,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": true,
+    "violations": [],
+    "test_tail": "      Tests  11 passed (11)\n   Start at  23:25:35\n   Duration  218ms (transform 51ms, setup 0ms, collect 94ms, tests 20ms, environment 0ms, prepare 82ms)"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "ormed JSON returned HTML** (`test/api.test.ts`)\n`express.json()` rejects broken JSON bodies with the default HTML error page, violating the `{ error: string }` JSON contract. Added an Express error-handling middleware that converts body-parse failures (and other uncaught errors) into a JSON `{ error }` response with the error's status (400 for malformed JSON).\n\n## Verification\n\n- `pnpm test` → **11 passed (3 files)** ✅\n- `pnpm typecheck` → clean ✅ (this was previously failing in the baseline on an optional `discountRate` access in `calculateInvoice`, which I also fixed with a `?? 0` default).\n"
+}

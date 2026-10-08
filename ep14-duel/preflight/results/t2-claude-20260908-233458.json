@@ -1,0 +1,19 @@
+{
+  "task": "t2",
+  "tool": "claude",
+  "started": "2026-09-08T23:30:41",
+  "elapsed_s": 255,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": true,
+    "help_ok": true,
+    "sample_ok": true,
+    "pipe_ok": true,
+    "perf_ok": true,
+    "perf_elapsed_s": 0.1,
+    "sample_output": "2026-09-07 08:15:30.123 INFO  retry attempt failed\n2026-09-07 08:15:31.002 ERROR disk full"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "ror`，不触碰 parse/stats 行为\n\n**`tests/test_dedupe.py`**（14 个新测试）+ **README.md** 文档\n\n## 验证结果\n\n| 项目 | 结果 |\n|---|---|\n| `.venv/bin/python -m pytest` | **18 passed**（含未改动的 4 条 parse/stats 基线）|\n| 10 万行同秒风暴实测（6.6 MB） | **~0.10s**（要求 60s 内），折叠为 1 行 |\n| `--keep last` | 正确保留组内最后原始行（如 ms=999 行）|\n| 管道消费 | `dedupe -o out && stats out` 计数正确，malformed 透传后 `skipped` 与原始一致 |\n\n测试覆盖：同秒风暴合并、跨秒不合并、级别参与 key、仅相邻合并、50 字符截断（60+ 字符不同尾部视为重复）、malformed 透传/打断、`-o` 文件、输出可被 parse/stats 消费、空文件、缺文件 exit 1、非法 `--keep` exit 2、同路径拒绝、10 万行烟测。\n\n一处设计决策供知悉：spec 未明确 malformed 行去向，我选择**透传**而非丢弃——这样 `stats` 在去重前后看到的 skipped 数一致，管线语义最可预测。\n[claude-code:unrecognized_model] {\"model\":\"deepseek-v4-flash\",\"query_source\":\"generate_session_title\"}\n"
+}

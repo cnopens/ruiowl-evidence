@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "claude",
+  "started": "2026-09-08T19:25:26",
+  "elapsed_s": 59,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": true,
+    "violations": [],
+    "test_tail": "      Tests  8 passed (8)\n   Start at  19:26:26\n   Duration  154ms (transform 31ms, setup 0ms, collect 35ms, tests 3ms, environment 0ms, prepare 54ms)"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "convention\" special-case that made `convertToCny(100, \"USD\")` divide by the rate (`100 / 7.2 = 13.89`). It now uses the documented `amount × rate` rule everywhere → `100 × 7.2 = 720`.\n- **`src/invoice.ts`** — Removed the `discountRate > 0.3` branch that taxed the full pre-discount subtotal (which produced tax 65 instead of 39). Tax is now always computed on `subtotal − discount`, matching the tests.\n- **`README.md`** — Removed the stale \"special rule for high-volume discounts\" so the docs match the corrected pricing model.\n\n**Verification:** `pnpm test` → 2 test files passed, 8/8 tests green.\n[claude-code:unrecognized_model] {\"model\":\"deepseek-v4-flash\",\"query_source\":\"generate_session_title\"}\n"
+}

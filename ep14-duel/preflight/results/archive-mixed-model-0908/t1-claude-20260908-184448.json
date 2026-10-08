@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "claude",
+  "started": "2026-09-08T18:43:26",
+  "elapsed_s": 81,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": true,
+    "violations": [],
+    "test_tail": "      Tests  8 passed (8)\n   Start at  18:44:47\n   Duration  154ms (transform 29ms, setup 0ms, collect 34ms, tests 3ms, environment 0ms, prepare 53ms)"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "/invoice.ts:88-94`** — Removed the high-volume branch. The condition `discountRate > 0.3` was setting the tax base to the original subtotal (no discount applied), but the test requires tax to always be charged on `subtotal − discount`. Tax base is now uniformly `subtotal - discount`. Also updated the function docstring to match.\n\nFinal test run:\n```\nTest Files  2 passed (2)\nTests       8 passed (8)\n```\n\n(Note: `pnpm typecheck` reports one pre-existing `TS18048` on `req.discountRate` possibly-undefined at line 84 — present in the baseline before my changes; the task only requires `pnpm test`.)\n[claude-code:unrecognized_model] {\"model\":\"MiniMax-M3[1m]\",\"query_source\":\"generate_session_title\"}\n"
+}

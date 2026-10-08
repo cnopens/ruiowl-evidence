@@ -1,0 +1,16 @@
+{
+  "task": "t2",
+  "tool": "dsh",
+  "started": "2026-09-08T06:37:35",
+  "elapsed_s": 226,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": false,
+    "help_ok": true,
+    "sample_ok": true,
+    "sample_output": "2026-09-07 08:15:30.123 INFO  retry attempt failed\n2026-09-07 08:15:31.002 ERROR disk full"
+  },
+  "final_pass": false,
+  "workdir": null,
+  "agent_log_tail": "otFoundError` 处理，退出码 1；成功后退出码 0。parse/stats 的解析器、命令与行为均未触碰。\n\n**`tests/test_dedupe.py`** — 14 个端到端（subprocess）测试，覆盖：同秒风暴折叠、`--keep last` 保留组末行、保留行原文空白不变、仅相邻重复才合并（中间隔不同行不合并）、跨秒/跨级别/消息前 50 字符内不同不合并、只比较前 50 字符（50 字符后不同仍合并）、按字符而非字节截断（多字节中文消息）、malformed 跳过、`-o` 输出文件、空文件、文件缺失退出码 1、非法 `--keep` 退出码 2。\n\n**`README.md`** — 补充了 `dedupe` 命令说明与用法示例。\n\n```bash\npython3 -m logproc dedupe app.log                       # 默认 keep first，输出到 stdout\npython3 -m logproc dedupe --keep last -o clean.log app.log\n```\n\n顺带说明：本机 Python 3.14 为 externally-managed，我在临时 venv 里装了 pytest 完成验证（18 passed）后已清理 `.venv`/缓存，仓库只保留代码与测试改动。\n"
+}

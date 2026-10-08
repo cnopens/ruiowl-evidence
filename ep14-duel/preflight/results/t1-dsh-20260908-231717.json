@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "dsh",
+  "started": "2026-09-08T23:15:45",
+  "elapsed_s": 91,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": true,
+    "violations": [],
+    "test_tail": "      Tests  11 passed (11)\n   Start at  23:17:17\n   Duration  216ms (transform 47ms, setup 0ms, collect 89ms, tests 20ms, environment 0ms, prepare 102ms)"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "otal` 计税（税 = 65），而测试要求税基始终是折后金额（税 = (500−200) × 0.13 = 39）。已移除该特殊分支——税始终按 `subtotal − discount` 计征；并顺带将可选的 `discountRate` 默认为 0，以消除预先存在的 TS 严格空值检查错误。\n\n**3. `src/invoice.ts` — `validateInvoiceRequest` 缺少“最多两位小数”校验**\n伪造注释声称上游已保证精度而无需校验。现已在验证时加入对 `unitPrice` 的子分（sub-cent）拒绝检查（容差可容忍浮点噪声），错误信息包含 `decimal` 以满足测试正则。\n\n**4. `src/index.ts` — 畸形 JSON 返回 HTML 错误页而非 JSON**\n`express.json()` 在路由执行前即以 400 拒绝畸形请求体，默认响应是 HTML 错误页。现已新增最终错误处理中间件，将所有到达该处的错误归一化为 `{ \"error\": string }` JSON 响应，并使用 `err.status`（400）。\n\n## 验证\n\n- `pnpm test`：**11/11 通过**（3 个测试文件全部通过）\n- `pnpm typecheck`：**无错误**（基线代码本身存在 2 处 TS 错误，也已一并清理）\n"
+}

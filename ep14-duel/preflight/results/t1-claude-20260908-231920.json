@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "claude",
+  "started": "2026-09-08T23:17:18",
+  "elapsed_s": 122,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": true,
+    "violations": [],
+    "test_tail": "      Tests  11 passed (11)\n   Start at  23:19:20\n   Duration  219ms (transform 51ms, setup 0ms, collect 95ms, tests 21ms, environment 0ms, prepare 86ms)"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "ine prices\" 与测试）要求拒绝超过 2 位小数的单价（如 `10.005`）。新增校验并抛含 \"decimal\" 的错误信息。实现上用**往返比较** `Math.round(x*100)/100 !== x` 而非 epsilon 比较——因为 `10.005*100 === 1000.5000000000001`，epsilon 法会漏判，而往返法对 `0.1`、`0.29`、超大金额等合法值均正确放行（已用 node 验证边界情况）。\n\n**4. `src/index.ts` — malformed JSON 返回 HTML 而非 JSON**\n原注释声称\"故意不要求 error middleware\"，但契约（README \"Error format\" + api 测试）要求畸形 JSON 也返回 `{ error: string }`。补上了错误处理中间件：`express.json()` 的解析错误（带 `status: 400`）现在会以 JSON 形式返回。顺手修正了 `calculateInvoice` 对可选 `discountRate` 的类型问题（省略时按 0 处理，避免 NaN 和 TS18048）。\n\n```bash\npnpm test      # 11 passed (3 files)\npnpm typecheck # clean\n```\n[claude-code:unrecognized_model] {\"model\":\"deepseek-v4-flash\",\"query_source\":\"generate_session_title\"}\n"
+}

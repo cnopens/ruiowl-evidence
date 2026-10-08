@@ -1,0 +1,16 @@
+{
+  "task": "t2",
+  "tool": "claude",
+  "started": "2026-09-08T00:01:43",
+  "elapsed_s": 209,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": false,
+    "help_ok": true,
+    "sample_ok": true,
+    "sample_output": "2026-09-07 08:15:30.123 INFO  retry attempt failed\n2026-09-07 08:15:31.002 ERROR disk full"
+  },
+  "final_pass": false,
+  "workdir": null,
+  "agent_log_tail": "age}\"` 重建输出，会丢失原文件字段间空格。改成 `(entry, raw_line)` 对贯穿 dedupe 链路，输出原行字节。\n2. **`keep` 校验放进 core**：`dedupe_entries` 对非法值抛 `ValueError`；argparse 的 `choices=` 已经先一步拦截，错误信息走 `argparse: error:`退出码 2。\n\n## 测试覆盖\n\n```\ntests/test_cli.py ....                                                   [ 21%]\ntests/test_dedupe.py ...............                                     [100%]\n============================== 19 passed in 0.61s ==============================\n```\n\ndedupe 测试包含：默认 keep first / `--keep last` / 相邻性 / 同秒不同级别不合并 / 前 50 字符边界 / 长 run / `-o` 长短形式 / 自动建父目录 / 空文件 / 无重复直通 / malformed警告 / 缺文件 / 非法 `--keep`。\n[claude-code:unrecognized_model] {\"model\":\"MiniMax-M3[1m]\",\"query_source\":\"generate_session_title\"}\n"
+}

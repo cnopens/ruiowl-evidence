@@ -1,0 +1,213 @@
+===== Ep14 正式对决开始 2026-09-08 23:15:45 超时=3600s =====
+
+########## [R1] t1 dsh —— 23:15:45 ##########
+[1/5] clone 源仓库 → /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/preflight-t1-dsh-7ka42xw8
+[2/5] 安装依赖 (pnpm)…
+[3/5] headless 跑 agent（超时 3600s）…
+[4/5] 验证判据…
+[5/5] 清理…
+
+============================================================
+结果: task=t1 tool=dsh 耗时=91s 超时=False
+FINAL_PASS: ✅ 是
+  test_8_8: ✅
+详情: ~/ruiowl-content/ep14-dsh-vs-claude-code/preflight/results/t1-dsh-20260908-231717.json
+============================================================
+>>> t1 dsh R1 exit=0
+
+########## [R1] t1 claude —— 23:17:17 ##########
+[1/5] clone 源仓库 → /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/preflight-t1-claude-jps41jnt
+[2/5] 安装依赖 (pnpm)…
+[3/5] headless 跑 agent（超时 3600s）…
+ℹ️  claude 后端 = deepseek（api.deepseek.com/anthropic，模型 deepseek-v4-flash，临时 settings: claude-ep14-bn0saprn.json）
+[4/5] 验证判据…
+[5/5] 清理…
+
+============================================================
+结果: task=t1 tool=claude 耗时=122s 超时=False
+FINAL_PASS: ✅ 是
+  test_8_8: ✅
+详情: ~/ruiowl-content/ep14-dsh-vs-claude-code/preflight/results/t1-claude-20260908-231920.json
+============================================================
+>>> t1 claude R1 exit=0
+
+########## [R2] t1 claude —— 23:19:20 ##########
+[1/5] clone 源仓库 → /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/preflight-t1-claude-ubfdx9wb
+[2/5] 安装依赖 (pnpm)…
+[3/5] headless 跑 agent（超时 3600s）…
+ℹ️  claude 后端 = deepseek（api.deepseek.com/anthropic，模型 deepseek-v4-flash，临时 settings: claude-ep14-ph2v8x23.json）
+[4/5] 验证判据…
+[5/5] 清理…
+
+============================================================
+结果: task=t1 tool=claude 耗时=136s 超时=False
+FINAL_PASS: ✅ 是
+  test_8_8: ✅
+详情: ~/ruiowl-content/ep14-dsh-vs-claude-code/preflight/results/t1-claude-20260908-232137.json
+============================================================
+>>> t1 claude R2 exit=0
+
+########## [R2] t1 dsh —— 23:21:37 ##########
+[1/5] clone 源仓库 → /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/preflight-t1-dsh-wc8inn87
+[2/5] 安装依赖 (pnpm)…
+[3/5] headless 跑 agent（超时 3600s）…
+[4/5] 验证判据…
+[5/5] 清理…
+
+============================================================
+结果: task=t1 tool=dsh 耗时=237s 超时=False
+FINAL_PASS: ✅ 是
+  test_8_8: ✅
+详情: ~/ruiowl-content/ep14-dsh-vs-claude-code/preflight/results/t1-dsh-20260908-232535.json
+============================================================
+>>> t1 dsh R2 exit=0
+
+########## [R1] t2 dsh —— 23:25:35 ##########
+[1/5] clone 源仓库 → /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/preflight-t2-dsh-7ld__7nu
+[2/5] 安装依赖 (bash)…
+[3/5] headless 跑 agent（超时 3600s）…
+[4/5] 验证判据…
+[5/5] 清理…
+
+============================================================
+结果: task=t2 tool=dsh 耗时=256s 超时=False
+FINAL_PASS: ✅ 是
+  pytest_all_green: ✅
+  help_ok: ✅
+  sample_ok: ✅
+  pipe_ok: ✅
+  perf_ok: ✅
+详情: ~/ruiowl-content/ep14-dsh-vs-claude-code/preflight/results/t2-dsh-20260908-233028.json
+============================================================
+>>> t2 dsh R1 exit=0
+
+########## [R1] t2 claude —— 23:30:29 ##########
+[1/5] clone 源仓库 → /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/preflight-t2-claude-nao3hhrv
+[2/5] 安装依赖 (bash)…
+[3/5] headless 跑 agent（超时 3600s）…
+ℹ️  claude 后端 = deepseek（api.deepseek.com/anthropic，模型 deepseek-v4-flash，临时 settings: claude-ep14-9zki_hb_.json）
+[4/5] 验证判据…
+[5/5] 清理…
+
+============================================================
+结果: task=t2 tool=claude 耗时=255s 超时=False
+FINAL_PASS: ✅ 是
+  pytest_all_green: ✅
+  help_ok: ✅
+  sample_ok: ✅
+  pipe_ok: ✅
+  perf_ok: ✅
+详情: ~/ruiowl-content/ep14-dsh-vs-claude-code/preflight/results/t2-claude-20260908-233458.json
+============================================================
+>>> t2 claude R1 exit=0
+
+########## [R2] t2 claude —— 23:34:58 ##########
+[1/5] clone 源仓库 → /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/preflight-t2-claude-9abwn8bz
+[2/5] 安装依赖 (bash)…
+[3/5] headless 跑 agent（超时 3600s）…
+ℹ️  claude 后端 = deepseek（api.deepseek.com/anthropic，模型 deepseek-v4-flash，临时 settings: claude-ep14-t3s1fytd.json）
+[4/5] 验证判据…
+[5/5] 清理…
+
+============================================================
+结果: task=t2 tool=claude 耗时=223s 超时=False
+FINAL_PASS: ✅ 是
+  pytest_all_green: ✅
+  help_ok: ✅
+  sample_ok: ✅
+  pipe_ok: ✅
+  perf_ok: ✅
+详情: ~/ruiowl-content/ep14-dsh-vs-claude-code/preflight/results/t2-claude-20260908-233849.json
+============================================================
+>>> t2 claude R2 exit=0
+
+########## [R2] t2 dsh —— 23:38:49 ##########
+[1/5] clone 源仓库 → /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/preflight-t2-dsh-mtfhdelw
+[2/5] 安装依赖 (bash)…
+[3/5] headless 跑 agent（超时 3600s）…
+[4/5] 验证判据…
+[5/5] 清理…
+
+============================================================
+结果: task=t2 tool=dsh 耗时=446s 超时=False
+FINAL_PASS: ✅ 是
+  pytest_all_green: ✅
+  help_ok: ✅
+  sample_ok: ✅
+  pipe_ok: ✅
+  perf_ok: ✅
+详情: ~/ruiowl-content/ep14-dsh-vs-claude-code/preflight/results/t2-dsh-20260908-234637.json
+============================================================
+>>> t2 dsh R2 exit=0
+
+########## [R1] t3 dsh —— 23:46:37 ##########
+[1/5] clone 源仓库 → /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/preflight-t3-dsh-65_b6ygm
+[2/5] 安装依赖 (pnpm)…
+[3/5] headless 跑 agent（超时 3600s）…
+[4/5] 验证判据…
+[5/5] 清理…
+
+============================================================
+结果: task=t3 tool=dsh 耗时=70s 超时=False
+FINAL_PASS: ✅ 是
+  build_ok: ✅
+  test_4_4: ✅
+  grep_clean: ✅
+详情: ~/ruiowl-content/ep14-dsh-vs-claude-code/preflight/results/t3-dsh-20260908-234749.json
+============================================================
+>>> t3 dsh R1 exit=0
+
+########## [R1] t3 claude —— 23:47:49 ##########
+[1/5] clone 源仓库 → /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/preflight-t3-claude-s4q3iytj
+[2/5] 安装依赖 (pnpm)…
+[3/5] headless 跑 agent（超时 3600s）…
+ℹ️  claude 后端 = deepseek（api.deepseek.com/anthropic，模型 deepseek-v4-flash，临时 settings: claude-ep14-plsy7w83.json）
+[4/5] 验证判据…
+[5/5] 清理…
+
+============================================================
+结果: task=t3 tool=claude 耗时=106s 超时=False
+FINAL_PASS: ✅ 是
+  build_ok: ✅
+  test_4_4: ✅
+  grep_clean: ✅
+详情: ~/ruiowl-content/ep14-dsh-vs-claude-code/preflight/results/t3-claude-20260908-234936.json
+============================================================
+>>> t3 claude R1 exit=0
+
+########## [R2] t3 claude —— 23:49:36 ##########
+[1/5] clone 源仓库 → /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/preflight-t3-claude-c6nstg2c
+[2/5] 安装依赖 (pnpm)…
+[3/5] headless 跑 agent（超时 3600s）…
+ℹ️  claude 后端 = deepseek（api.deepseek.com/anthropic，模型 deepseek-v4-flash，临时 settings: claude-ep14-_8opohda.json）
+[4/5] 验证判据…
+[5/5] 清理…
+
+============================================================
+结果: task=t3 tool=claude 耗时=70s 超时=False
+FINAL_PASS: ✅ 是
+  build_ok: ✅
+  test_4_4: ✅
+  grep_clean: ✅
+详情: ~/ruiowl-content/ep14-dsh-vs-claude-code/preflight/results/t3-claude-20260908-235048.json
+============================================================
+>>> t3 claude R2 exit=0
+
+########## [R2] t3 dsh —— 23:50:48 ##########
+[1/5] clone 源仓库 → /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/preflight-t3-dsh-d1tlaiak
+[2/5] 安装依赖 (pnpm)…
+[3/5] headless 跑 agent（超时 3600s）…
+[4/5] 验证判据…
+[5/5] 清理…
+
+============================================================
+结果: task=t3 tool=dsh 耗时=81s 超时=False
+FINAL_PASS: ✅ 是
+  build_ok: ✅
+  test_4_4: ✅
+  grep_clean: ✅
+详情: ~/ruiowl-content/ep14-dsh-vs-claude-code/preflight/results/t3-dsh-20260908-235211.json
+============================================================
+>>> t3 dsh R2 exit=0
+
+===== 对决结束 2026-09-08 23:52:11 | 完整日志: results/duel-20260908-231545.log =====

@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "dsh",
+  "started": "2026-09-08T18:42:30",
+  "elapsed_s": 55,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": true,
+    "violations": [],
+    "test_tail": "      Tests  8 passed (8)\n   Start at  18:43:25\n   Duration  157ms (transform 27ms, setup 0ms, collect 26ms, tests 3ms, environment 0ms, prepare 63ms)"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "× rate`\n- **修复**:移除该特判,所有币种统一按费率表 `amount × rate` 换算(100 USD × 7.20 = 720 CNY)\n\n### 2. `src/invoice.ts` — 高折扣单错误地在折扣前金额上计税\n- **失败**:`discountRate = 0.4` 时税按全额 500 计算得 65,期望按折后 300 计算得 39\n- **原因**:存在 \"`discountRate > 0.3` 时按原始小计计税\" 的所谓供应商让利特判\n- **修复**:删除该特判,任何折扣率下都按 `(subtotal − discount) × taxRate` 计税;同时用 `?? 0` 兜底可选的 `discountRate`,修复 `tsc` 报的 \"possibly undefined\" 类型错误(该问题在改动前就存在,只是 `pnpm test` 不会触发类型检查)\n\n### 3. `README.md` — 文档同步\n更新了定价规则章节,移除已不存在的 \"high-volume discounts 特判\" 描述,使文档与测试/代码一致。\n\n## 验证结果\n\n- `pnpm test`:**8 passed (2 files)**,0 失败\n- `pnpm typecheck`:无错误\n\n未修改任何测试文件与 `package.json`。\n"
+}

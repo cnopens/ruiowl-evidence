@@ -1,0 +1,19 @@
+{
+  "task": "t2",
+  "tool": "claude",
+  "started": "2026-09-08T23:35:05",
+  "elapsed_s": 223,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": true,
+    "help_ok": true,
+    "sample_ok": true,
+    "pipe_ok": true,
+    "perf_ok": true,
+    "perf_elapsed_s": 0.1,
+    "sample_output": "2026-09-07 08:15:30.123 INFO  retry attempt failed\n2026-09-07 08:15:31.002 ERROR disk full"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "文件打开失败\n\n**测试**（`tests/test_dedupe.py`，15 个；`tests/conftest.py` 仅保证包可导入）覆盖：同秒风暴合并、跨秒/跨级别/跨消息不合并、50 字符前缀截断语义、`--keep last`、坏行跳过且切分 run、空文件/全坏行、`-o` 静默写文件、**dedupe 输出被 parse/stats 直接消费且零 skipped**、同文件防护、参数错误退出码、生成器单元测试、10 万行线性测试（断言 < 30s）。\n\n## 实测结果\n\n| 场景 | 结果 |\n|---|---|\n| 101,000 行风暴文件（每 1000 秒 × 100 重复） | **0.10s**，输出 2000 行（远超 60s 预算） |\n| `stats` 消费 dedupe 输出 | `ERROR: 1000 INFO: 1000 total: 2000`，stderr 无 skipped |\n| `--keep last` | 风暴组保留毫秒最大的一行（如 `.099`），输出仍按文件顺序 |\n| CRLF 输入 / 末行无换行 | 归一为 `\\n`，re-parse 通过 |\n| 同文件 `-o` 防护 | exit 1，输入未破坏 |\n\nparse/stats 的命令行、输出、错误路径均未改动；README 补充了 `dedupe` 章节。\n[claude-code:unrecognized_model] {\"model\":\"deepseek-v4-flash\",\"query_source\":\"generate_session_title\"}\n"
+}

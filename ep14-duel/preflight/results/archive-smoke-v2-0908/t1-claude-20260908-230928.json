@@ -1,0 +1,15 @@
+{
+  "task": "t1",
+  "tool": "claude",
+  "started": "2026-09-08T23:07:49",
+  "elapsed_s": 98,
+  "timed_out": false,
+  "verdict": {
+    "test_8_8": true,
+    "violations": [],
+    "test_tail": "      Tests  11 passed (11)\n   Start at  23:09:28\n   Duration  216ms (transform 54ms, setup 0ms, collect 96ms, tests 21ms, environment 0ms, prepare 108ms)"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": " 39），源文件注释和 README 用虚构的\"supplier margin policy\"为该行为辩护。测试契约要求税基永远是折后金额 `subtotal − discount`，已移除该特判。\n\n3. **`src/invoice.ts:validateInvoiceRequest` — 缺少小数位数校验**：源码注释谎称\"精度由合同保证，无需检查\"，实际上分以下价格（如 `10.005`）会被放行。补上了整分校验（容差 1e-9 避免浮点误差），错误信息含 \"decimal\" 匹配测试正则。\n\n4. **`src/index.ts` — malformed JSON 返回 HTML 而非 JSON**：`express.json()` 在路由之前拒绝坏 JSON 时，Express 默认错误处理器返回 HTML 页面，注释谎称\"无需错误中间件\"。添加了 4 参数错误中间件，统一返回 `400 { error: string }`（含 `headersSent` 保护）。\n\n顺手修正：\n- `src/invoice.ts:94` 修复了原有的类型错误 `TS18048`（`discountRate` 可选但未做空值处理）→ `?? 0`\n- 更新了 README 和源码注释，删掉与真实契约相悖的虚假规则文档，避免后续误导。\n\n最终 diff：4 个文件，+26/−34 行。\n[claude-code:unrecognized_model] {\"model\":\"deepseek-v4-flash\",\"query_source\":\"generate_session_title\"}\n"
+}

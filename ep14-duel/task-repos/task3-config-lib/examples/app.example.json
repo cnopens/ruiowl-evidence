@@ -1,0 +1,12 @@
+{
+  "app": {
+    "name": "demo"
+  },
+  "loader": {
+    "class": "ConfigLoader",
+    "options": {
+      "envPrefix": "APP",
+      "cacheMs": 30000
+    }
+  }
+}

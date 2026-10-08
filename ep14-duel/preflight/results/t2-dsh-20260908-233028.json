@@ -1,0 +1,19 @@
+{
+  "task": "t2",
+  "tool": "dsh",
+  "started": "2026-09-08T23:26:11",
+  "elapsed_s": 256,
+  "timed_out": false,
+  "verdict": {
+    "pytest_all_green": true,
+    "help_ok": true,
+    "sample_ok": true,
+    "pipe_ok": true,
+    "perf_ok": true,
+    "perf_elapsed_s": 0.1,
+    "sample_output": "2026-09-07 08:15:30.123 INFO  retry attempt failed\n2026-09-07 08:15:31.002 ERROR disk full"
+  },
+  "final_pass": true,
+  "workdir": null,
+  "agent_log_tail": "utput FILE`（缺省写 stdout）\n- 输出的是**原样固定格式行**（timestamp level message），parse/stats 可直接管道消费；`main` 在 `FileNotFoundError` 之后补了一个 `OSError` 兜底，坏输出路径也返回干净错误码 1\n- parse/stats 命令逻辑零改动\n\n**新增 `tests/test_dedupe.py`** — 20 个测试：默认/显式 keep 语义、级别/消息前 50 字符区分、跨秒不合并、非相邻不合并、坏行跳过、空文件、`-o`/`--output`、stdin `-`、末行无换行、dedupe 输出喂给 parse/stats、单遍输入校验、10 万行性能冒烟；**新增 `README.md`** 文档段落\n\n## 实测数据（100k 行）\n- 10 秒 × 无；实际：10 万个输入行 → 正确输出 10,000 行（每秒风暴折 1）\n- 用时 **0.10s**（预算 60s，余量 600 倍）\n- 峰值 RSS ≈ 20 MB（即 Python 解释器基线，流式内存，无整文件副本）\n\n退出码：成功 0、坏 `--keep` 用法错误 2、缺文件/输出路径不可写 1。`.venv/` 未删除/重建，测试仅用 `.venv/bin/python -m pytest` 运行。\n"
+}
