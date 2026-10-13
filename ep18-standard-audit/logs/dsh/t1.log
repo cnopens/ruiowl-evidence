@@ -1,0 +1,20 @@
+$ dsh --profile headless 请先读这个文件：<workdir>/input/radar-2026-10-09.md（中文长文）。然后只输出两段：第一段『要点』给 5 条（每条不超过 40 字，须含文中专名）；第二段『待核清单』给 3 条（每条说明要核什么、为什么）。不要复述全文，不要客套。
+--- exit=0  9.5s  2026-10-13T16:07:34 ---
+STDOUT:
+## 要点
+
+1. Google 发布 Gemini agent，含 Coworker 同事身份
+2. Cactus Whistle：16.9MB 跑 CPU、七语言
+3. 字节 Seed 论文：DeepSeek KV 压缩致相位差 40pp
+4. MirroS AgentGarten：代码世界＋神经渲染器
+5. 联想 TianxiCode 登顶 SWE-bench-Live 71%
+
+## 待核清单
+
+1. **SWE-bench-Live 官方榜单是否收录 TianxiCode 的 71%**：本文自述榜单页为 JS 渲染、本轮未抓到该记录，而"全球第一"是整条 ⑤ 唯一的硬事实。核不到就只能维持厂商口径 🟡，不能当行业事实引用。
+2. **DeepSeek 专属数字 40.2/34.8/19.1/14.8/6.1 pp 与 4→2 token 周期**：论文摘要只写"up to 40 percentage points"，这组分档值与周期出自量子位转述。需回 arXiv 正文/附录核对是否逐条对应 V4、V4.1 各版本，否则只能按媒体口径记。
+3. **Whistle 的 WER 对比是否口径统一**：Cactus 自测是拿自家数字与 Whisper、Moonshine 各自**官方 runtime 默认**比，Moonshine 仅英文、Whisper 的 AMI 只报 IHM 子集。需在统一测试条件下复核"部分集子输、部分赢"的边界，防止转述成"全面优于 Whisper"。
+
+
+STDERR:
+

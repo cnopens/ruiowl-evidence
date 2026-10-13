@@ -1,0 +1,20 @@
+$ ~/workspace/agentscope-test/.venv/bin/python <workdir>/t1.py
+--- exit=0  68.1s  2026-10-13T16:05:57 ---
+STDOUT:
+**要点**
+1. Gemini agent（Google Cloud）带企业邮箱身份与四种记忆，可动态调用 Claude。
+2. Cactus Whistle：16.9 MB 单文件、纯 CPU、七语言。
+3. 字节 Seed：分块 KV 压缩致相位敏感性，DeepSeek 检索差 40 pp。
+4. AgentGarten：代码世界配神经渲染器，实时 >30 fps 自我进化。
+5. TianxiCode 配 DeepSeek 登顶 SWE-bench-Live，71%。
+
+**待核清单**
+1. 回 SWE-bench-Live 官方榜单核 TianxiCode 的 Verified 记录与 71%（Lite 分榜）——文中已注明本轮因页面 JS 渲染未抓到该记录，现全凭联想供稿，无第三方复核也无公开复现物；核不到则"全球第一"只能留厂商口径，不能升级为 🟢。
+2. 核 arXiv 2609.36322 正文/PDF 是否给出 DeepSeek 专属分档值（V4-Flash-Base 40.2 pp、V4-Pro-Base 34.8 pp、后训练 19.1/14.8/6.1 pp、周期 4→2 token）——摘要只写"up to 40 percentage points"，这组数字目前来自量子位转述；该条整条标 🟢 却含 🟡 数字，若论文无此表，等级与引用方式都要下调。
+3. 在自有硬件（如 M4 Pro CPU）复跑 Whistle，并核 Whisper base、Moonshine tiny v2 的对比口径——11.1 ms、1,319 tok/s 与各集 WER 均为 Cactus 自测且跨口径（Moonshine 仅英文、Whisper 的 AMI 为 IHM 子集、"缺柱=原作者未发布"），不复跑就容易被写成"全面优于 Whisper"；同时 Needle 13.6k★ 与 HN 766 分/152 评论会随时间漂移，引用需带取值时点。
+
+[elapsed] 67.2s
+
+
+STDERR:
+

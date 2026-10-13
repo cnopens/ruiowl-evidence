@@ -1,0 +1,9 @@
+$ bash -lc rm -rf /tmp/ep18-portable/codexhome && mkdir -p /tmp/ep18-portable/codexhome && cp ~/.codex/config.toml /tmp/ep18-portable/codexhome/ 2>/dev/null; cp -R ~/.codex/skills /tmp/ep18-portable/codexhome/ 2>/dev/null; ls /tmp/ep18-portable/codexhome
+--- exit=0  0.1s  2026-10-13T16:19:06 ---
+STDOUT:
+config.toml
+skills
+
+
+STDERR:
+

@@ -1,0 +1,9 @@
+$ dsh --profile headless --patch ~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/patches/dsh_alt_deepseek.yml 只回复两个字：收到
+--- exit=1  0.4s  2026-10-13T15:51:14 ---
+STDOUT:
+
+
+
+STDERR:
+dsh: NO_ADAPTER: no adapter registered for provider "openai"
+

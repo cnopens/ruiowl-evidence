@@ -1,0 +1,8 @@
+$ bash -lc docker-agent run --help 2>&1 | grep -cE '\-\-model|\-\-safety'
+--- exit=0  0.0s  2026-10-13T16:13:59 ---
+STDOUT:
+4
+
+
+STDERR:
+

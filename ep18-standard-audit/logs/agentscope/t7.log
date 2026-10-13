@@ -1,0 +1,13 @@
+$ ~/workspace/agentscope-test/.venv/bin/python <workdir>/t7.py
+--- exit=0  2.3s  2026-10-13T16:20:59 ---
+STDOUT:
+[mcp] tools: ['mcp__ep18probe__ep18_probe', 'mcp__ep18probe__ep18_echo']
+I'm waiting for your permission or the external execution to finish.
+
+[elapsed] 1.7s
+
+
+STDERR:
+2026-10-13 16:20:57,650 | INFO    | _mcp_client:connect:358 - MCP connected: ep18probe
+2026-10-13 16:20:59,525 | INFO    | _mcp_client:close:413 - MCP closed: ep18probe
+

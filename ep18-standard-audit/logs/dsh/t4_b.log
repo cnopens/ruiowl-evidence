@@ -1,0 +1,8 @@
+$ dsh --profile headless 我们这条系列的名字叫什么？只回答名字。
+--- exit=0  3.7s  2026-10-13T16:07:49 ---
+STDOUT:
+锐Owl 雷达
+
+
+STDERR:
+

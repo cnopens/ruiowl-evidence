@@ -1,0 +1,11 @@
+$ bash -lc rm -rf /tmp/ep18-portable/dshhome/profiles && mkdir -p /tmp/ep18-portable/dshhome/profiles && cp -R ~/.dsh/profiles/headless /tmp/ep18-portable/dshhome/profiles/headless && ls /tmp/ep18-portable/dshhome/profiles/headless
+--- exit=0  0.0s  2026-10-13T16:07:49 ---
+STDOUT:
+cordis.patch.yml
+cordis.yml
+package.json
+pnpm-workspace.yaml
+
+
+STDERR:
+

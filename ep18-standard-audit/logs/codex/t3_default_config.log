@@ -1,0 +1,24 @@
+$ codex exec --skip-git-repo-check 只回复：收到
+--- exit=1  0.1s  2026-10-13T16:17:54 ---
+STDOUT:
+
+
+STDERR:
+Reading additional input from stdin...
+OpenAI Codex v0.144.3
+--------
+workdir: <workdir>/
+model: MiniMax-M3
+provider: minimax
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: none
+reasoning summaries: none
+session id: 01a13456-ec91-7db0-aea0-8a204fca5bb5
+--------
+user
+只回复：收到
+warning: Model metadata for `MiniMax-M3` not found. Defaulting to fallback metadata; this can degrade performance and cause issues.
+ERROR: Missing environment variable: `MINIMAX_API_KEY`. 取 MINIMAX_API_KEY（见 ~/.config/secrets/minimax.env，勿写入仓库/聊天）
+ERROR: Missing environment variable: `MINIMAX_API_KEY`. 取 MINIMAX_API_KEY（见 ~/.config/secrets/minimax.env，勿写入仓库/聊天）
+

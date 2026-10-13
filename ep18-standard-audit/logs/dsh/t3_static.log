@@ -1,0 +1,15 @@
+$ bash -lc dsh --profile headless --patch ~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/patches/dsh_unified_tokenplan.yml --dump-config | grep -A6 'agent-default-model' | head -9
+--- exit=0  0.1s  2026-10-13T16:07:40 ---
+STDOUT:
+- id: agent-default-model
+  name: '@deepseek-ai/dsh-agent-default-model'
+  config:
+    provider: openai
+    model: qwen3.8-max
+    baseUrl: https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1
+    apiKeyEnv: DASHSCOPE_API_KEY
+# == @deepseek-ai/dsh-base
+
+
+STDERR:
+

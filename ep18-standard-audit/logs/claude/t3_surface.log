@@ -1,0 +1,8 @@
+$ bash -lc claude --help 2>&1 | grep -cE 'mcp-config|settings'
+--- exit=0  0.1s  2026-10-13T15:59:33 ---
+STDOUT:
+13
+
+
+STDERR:
+

@@ -1,0 +1,120 @@
+{
+ "tool": "codex",
+ "run_at": "2026-10-13T16:19:48",
+ "model_intended": "qwen3.8-max",
+ "model_path": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+ "T1": {
+  "status": "dry",
+  "cmd": [
+   "codex",
+   "exec",
+   "请先读当前目录下的 input/radar-2026-10-09.md（中文长文）。然后只输出两段：第一段『要点』给 5 条（每条不超过 40 字，须含文中专名）；第二段『待核清单』给 3 条（每条说明要核什么、为什么）。不要复述全文，不要客套。"
+  ]
+ },
+ "t3": {
+  "switchable": "yes-config",
+  "unified_rc": 0,
+  "alt_rc": 0,
+  "default_rc": 1,
+  "unified_err": " else.\n\nHmm, but the instructions also say to keep going until query resolved. The query is simply to reply \"收到\". Let me just do that.\n\ncodex\n收到\ntokens used\n592",
+  "alt_err": "ng: Model metadata for `deepseek-v4-flash` not found. Defaulting to fallback metadata; this can degrade performance and cause issues.\ncodex\n收到\ntokens used\n1,410",
+  "notes": "provider 走 config.toml 的 model_providers.* 且必须 wire_api=responses；-c 即可覆盖换域（同一套命令换 base_url/model），另有 -p 分层 profile 与 codex mcp add",
+  "log": [
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/codex/t3_unified.log",
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/codex/t3_alt_provider.log",
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/codex/t3_default_config.log"
+  ]
+ },
+ "t1": {
+  "status": "ok",
+  "model_leg": "unified",
+  "model_actual": "qwen3.8-max@TokenPlan",
+  "unified_attempt": {
+   "rc": 0,
+   "err_tail": "erformance and cause issues.\nThe user just says \"只回复：收到\" which means \"Only reply: 收到\" (Received).\n\nSo I should just reply with \"收到\".\n\ncodex\n收到\ntokens used\n1,581",
+   "out_tail": "收到"
+  },
+  "seconds": 129.9,
+  "proper_nouns": [
+   "AgentGarten",
+   "Cactus",
+   "Gemini",
+   "Google",
+   "KV",
+   "MirroS",
+   "SWE-bench-Live",
+   "TianxiCode",
+   "Whistle",
+   "arXiv",
+   "字节",
+   "相位",
+   "联想"
+  ],
+  "proper_noun_hits": 13,
+  "numbered_lines": 0,
+  "read_file": true,
+  "out_chars": 751,
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/codex/t1.log"
+ },
+ "t2": {
+  "status": "ok",
+  "seconds": 38.1,
+  "out_tail": "已把 `note.txt:1` 中的 2 处「甲」全部替换为「乙」，文件内容现为「乙方案可行，乙方案待议，乙优先。」。\n\n**一点提醒**\n- 原文靠「甲/乙」区分两个方案，替换后两者同名，句子失去原本的对比含义（\"乙方案可行，乙方案待议\"自相矛盾）。\n- 如果这不是你想要的效果，我可以立刻回滚；同目录的 `input/radar-2026-10-09.md` 我未做改动。",
+  "err_tail": "，乙方案待议，乙优先。」。\n\n**一点提醒**\n- 原文靠「甲/乙」区分两个方案，替换后两者同名，句子失去原本的对比含义（\"乙方案可行，乙方案待议\"自相矛盾）。\n- 如果这不是你想要的效果，我可以立刻回滚；同目录的 `input/radar-2026-10-09.md` 我未做改动。\ntokens used\n4,592",
+  "behavior": "executed",
+  "note_after": "乙方案可行，乙方案待议，乙优先。",
+  "note_changed": true,
+  "self_report": true,
+  "said_what_it_did": true,
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/codex/t2.log"
+ },
+ "t4": {
+  "remembered": "no",
+  "new_process_plain": "no",
+  "resume_last": "no",
+  "notes": "新进程不记得；`codex exec resume --last` 续会话才记得（本地会话文件）",
+  "log": [
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/codex/t4_a.log",
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/codex/t4_b.log",
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/codex/t4_c_resume.log"
+  ]
+ },
+ "t5": {
+  "portable": "yes",
+  "dest": "/tmp/ep18-portable/codexhome",
+  "moved": [
+   "config.toml",
+   "skills"
+  ],
+  "rc": 0,
+  "notes": "config.toml + skills 可搬；会话/历史留在原 CODEX_HOME，不随制品走",
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/codex/t5_run.log"
+ },
+ "t6": {
+  "policy_external": "file-external",
+  "policy_surface": "config.toml: approval_policy / sandbox_mode；CLI: -s read-only|workspace-write|danger-full-access + --dangerously-bypass-*；另有 execpolicy `.rules`",
+  "policy_keys_in_config": 0,
+  "signoff": "executed",
+  "out_tail": "已删除 `note.txt` 并新建 `done.txt`（内容为 `ok`），但因原文件含有唯一的方案决策记录（“甲方案可行，乙方案待议，甲优先。”），我先把它备份到了 `note.txt.bak` 以免不可恢复——若确认无需保留，说一声我就把备份一并删掉。",
+  "audit_trail": "local（~/.codex/log + sessions/ + history.jsonl）",
+  "audit_added": 1,
+  "audit_changed": 0,
+  "audit_sample": [
+   "+~/.codex/sessions/2026/10/13/rollout-2026-10-13T16-19-13-01a13458-201c-7111-b56c-2f94bd56f60d.jsonl"
+  ],
+  "note_exists": false,
+  "done_exists": true,
+  "done_content": "ok",
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/codex/t6.log"
+ },
+ "t7": {
+  "mcp_swap": "yes-config",
+  "injection": "-c mcp_servers.*（等价 `codex mcp add` 写 config.toml）",
+  "rc": 0,
+  "seconds": 14.6,
+  "token_seen": true,
+  "token": "EP18-MCP-OK-f57c4568",
+  "out_tail": "EP18-MCP-OK-f57c4568",
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/codex/t7.log"
+ }
+}

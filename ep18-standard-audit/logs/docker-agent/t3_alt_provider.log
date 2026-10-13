@@ -1,0 +1,9 @@
+$ docker-agent run <workdir>/agent.yaml 只回复：收到 --exec
+--- exit=0  0.9s  2026-10-13T16:13:59 ---
+STDOUT:
+The user is asking me to reply only with "收到". However, the system prompt says I'm a rigorous Chinese assistant that outputs only as required, no pleasantries. The user explicitly says "只回复：收到" (only reply: 收到). So I should just reply "收到".
+
+收到
+
+STDERR:
+

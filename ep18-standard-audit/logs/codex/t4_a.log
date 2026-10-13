@@ -1,0 +1,33 @@
+$ codex exec --skip-git-repo-check -c model_providers.tokenplan={name="TokenPlan",base_url="https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",env_key="TP_KEY",wire_api="responses"} -c model_provider=tokenplan -c model="qwen3.8-max" 记住一个事实：我们这条系列的名字叫「心灯」。回复『已记住』即可。
+--- exit=0  4.0s  2026-10-13T16:17:58 ---
+STDOUT:
+已记住。
+
+
+STDERR:
+Reading additional input from stdin...
+OpenAI Codex v0.144.3
+--------
+workdir: <workdir>/
+model: qwen3.8-max
+provider: tokenplan
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: none
+reasoning summaries: none
+session id: 01a13456-ecfd-7841-9a80-1df55072dfe1
+--------
+user
+记住一个事实：我们这条系列的名字叫「心灯」。回复『已记住』即可。
+warning: Model metadata for `qwen3.8-max` not found. Defaulting to fallback metadata; this can degrade performance and cause issues.
+The user says: "Remember a fact: the name of our series is called 「心灯」(Heart Lamp). Just reply 『已记住』(Remembered)."
+
+Simple conversational request. Reply with 『已记住』.
+
+Should I persist this? They said just reply. Keep it simple.
+
+codex
+已记住。
+tokens used
+605
+

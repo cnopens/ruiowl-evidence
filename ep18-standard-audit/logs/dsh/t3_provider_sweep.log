@@ -1,0 +1,9 @@
+deepseek-official    rc=   1 err=dsh: INVALID_REQUEST: The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed qwen3.8-max. (re
+openai               rc=   1 err=dsh: NO_ADAPTER: no adapter registered for provider "openai"
+openai-compatible    rc=   1 err=dsh: NO_ADAPTER: no adapter registered for provider "openai-compatible"
+openai_compatible    rc=   1 err=dsh: NO_ADAPTER: no adapter registered for provider "openai_compatible"
+pi-ai                rc=   1 err=dsh: NO_ADAPTER: no adapter registered for provider "pi-ai"
+anthropic            rc=   1 err=dsh: NO_ADAPTER: no adapter registered for provider "anthropic"
+openai-responses     rc=   1 err=dsh: NO_ADAPTER: no adapter registered for provider "openai-responses"
+dashscope            rc=   1 err=dsh: NO_ADAPTER: no adapter registered for provider "dashscope"
+tokenplan            rc=   1 err=dsh: NO_ADAPTER: no adapter registered for provider "tokenplan"

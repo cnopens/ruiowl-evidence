@@ -1,0 +1,9 @@
+$ dsh --profile headless --patch ~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/patches/dsh_unified_tokenplan.yml 只回复：收到
+--- exit=1  1.0s  2026-10-13T16:07:25 ---
+STDOUT:
+
+
+
+STDERR:
+dsh: NO_ADAPTER: no adapter registered for provider "openai"
+

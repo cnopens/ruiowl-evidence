@@ -1,0 +1,13 @@
+$ ~/workspace/agentscope-test/.venv/bin/python <workdir>/t4_same.py
+--- exit=0  8.4s  2026-10-13T16:06:42 ---
+STDOUT:
+已记住
+
+[elapsed] 4.5s
+心灯
+
+[elapsed] 3.5s
+
+
+STDERR:
+

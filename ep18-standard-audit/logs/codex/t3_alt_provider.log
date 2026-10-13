@@ -1,0 +1,27 @@
+$ codex exec --skip-git-repo-check -c model_providers.ep18alt={name="DeepSeek",base_url="https://api.deepseek.com/v1",env_key="DS_KEY",wire_api="responses"} -c model_provider=ep18alt -c model="deepseek-v4-flash" 只回复：收到
+--- exit=0  1.7s  2026-10-13T16:17:54 ---
+STDOUT:
+收到
+
+
+STDERR:
+Reading additional input from stdin...
+OpenAI Codex v0.144.3
+--------
+workdir: <workdir>/
+model: deepseek-v4-flash
+provider: ep18alt
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: none
+reasoning summaries: none
+session id: 01a13456-e5cc-7d92-bee4-8445b76cb979
+--------
+user
+只回复：收到
+warning: Model metadata for `deepseek-v4-flash` not found. Defaulting to fallback metadata; this can degrade performance and cause issues.
+codex
+收到
+tokens used
+1,410
+

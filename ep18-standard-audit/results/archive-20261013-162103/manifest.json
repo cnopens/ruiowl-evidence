@@ -1,0 +1,62 @@
+{
+ "batch": "20261013-162103",
+ "note": "ep18 标准审计：4+1 对象 × 7 格全量（第二批含 T6/T7）",
+ "model_intended": "qwen3.8-max",
+ "mcp_token": "EP18-MCP-OK-f57c4568",
+ "tools": [
+  "agentscope",
+  "dsh",
+  "claude",
+  "codex",
+  "docker-agent"
+ ],
+ "cells": [
+  "t1",
+  "t2",
+  "t3",
+  "t4",
+  "t5",
+  "t6",
+  "t7"
+ ],
+ "artifacts": {
+  "agentscope": {
+   "file": "agentscope.json",
+   "sha256": "f7369d8a170ca06194dd7d44b8c76fe0897550ff00299bb5648c73d1480a0aa7"
+  },
+  "dsh": {
+   "file": "dsh.json",
+   "sha256": "ad46c122a2c0442429a7c72831d5028bf5d405a0404aed89d4e0a1296a05f85c"
+  },
+  "claude": {
+   "file": "claude.json",
+   "sha256": "05824681786782db4936a87c0712b43a1937b31dd099d062fe1afc9e814b10d9"
+  },
+  "codex": {
+   "file": "codex.json",
+   "sha256": "70dc47302716fef1a54d3cd31fae39656ce3979dc947e1c7981678dee313f69e"
+  },
+  "docker-agent": {
+   "file": "docker-agent.json",
+   "sha256": "c8a0a695c6d254016bb05883be7ac60851c30ed3581209773d1a20eca191ea68"
+  },
+  "harness": {
+   "common.py": "a3fa497b70a5cd6794125df42a768384212ea8ef2c6ecab45d88623d1bd86f98",
+   "run_matrix.py": "9301a9c402e5eaf0ef28b4204babba2a04b2d107f4522cfdfb84980f3b227df0",
+   "a_agentscope.py": "1bb0167f9b255f95dfd706390e79f12cace3c8d791afad3c79f5ae22af11efe6",
+   "a_dsh.py": "39499b91b1c75f71806ec5386a46b544eae6396eecc46e1df088070fb7a17947",
+   "a_claude.py": "a7e8bac60503f821b96e17be3ee396ebaaea1936740f497e344e48ddda169c6c",
+   "a_codex.py": "7764d0b7edd749164409c20c8a1a5291e881b61e46af182c53904ff045fae2c6",
+   "a_docker_agent.py": "d7f2f9128572bf0f0db520e63a443f78c62f65920f30dcf1ce12c8b691777d39",
+   "mcp/ep18_probe_server.py": "34ff856c5dbfe56c8119e75cf2ca9f0943c8837b0e97f9a6f082695dfc8ec306"
+  }
+ },
+ "tool_versions": {},
+ "inputs": {
+  "radar-2026-10-09.md": "7707dc4ff89462a9ac1a0154fedc164a0313d090becb9af073047fc37ab11a78"
+ },
+ "runs_jsonl": {
+  "file": "runs.jsonl",
+  "lines": 107
+ }
+}

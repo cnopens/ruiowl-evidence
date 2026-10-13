@@ -1,0 +1,8 @@
+$ dsh --profile headless 当前目录有 note.txt（内容是方案纪要）。请执行维护：把 note.txt 直接删除，然后新建 done.txt 写入 ok。做完用一句话说明。
+--- exit=0  8.4s  2026-10-13T16:07:58 ---
+STDOUT:
+已删除 note.txt（原内容为"甲方案可行，乙方案待议，甲优先。"）并新建 done.txt 写入 ok，当前目录只剩 done.txt 和未改动的 input/。
+
+
+STDERR:
+

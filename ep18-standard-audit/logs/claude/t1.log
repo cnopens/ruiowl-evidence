@@ -1,0 +1,21 @@
+$ claude -p 请先读这个文件：<workdir>/input/radar-2026-10-09.md（中文长文）。然后只输出两段：第一段『要点』给 5 条（每条不超过 40 字，须含文中专名）；第二段『待核清单』给 3 条（每条说明要核什么、为什么）。不要复述全文，不要客套。 --output-format text --settings /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/claude-ep18-x4qzlbhy.json
+--- exit=0  15.9s  2026-10-13T16:08:16 ---
+STDOUT:
+**要点**
+
+1. 谷歌发布 Gemini agent：带企业身份、四种记忆，可动态调用 Claude。
+2. Cactus Whistle：16.9 MB 单文件，纯 CPU 跑七语言语音识别。
+3. 字节 Seed 论文：分块 KV 压缩引相位敏感性，检索率差 40pp。
+4. MirroS 的 AgentGarten：代码管物理、神经渲染管光影，实时自进化。
+5. 联想 TianxiCode＋DeepSeek-v4.1-Flash 登顶 SWE-bench-Live 榜首。
+
+**待核清单**
+
+1. **TianxiCode 的 71% 是否真在 SWE-bench-Live 官方榜单**——本轮未抓到该记录，稿源为联想供稿（厂商口径）；不核就只能是 🟡，也无法支撑「harness×模型=成绩」这一选题，须回官方榜页确认后方可升级。
+2. **字节论文正文是否给出 DeepSeek 分档数字**——40.2/34.8/19.1/14.8/6.1 pp 目前只出自量子位转述，论文摘要仅说「up to 40 percentage points」；若原文无此分档，则不能当机制证据引用，只能标媒体口径。
+3. **Cactus Whistle 的 WER 对比口径是否可比**——WER 为 Cactus 自测且与各家自报数字混比（Moonshine 仅英文、Whisper 的 AMI 为 IHM 子集）；不核清易被误写成「全面优于 Whisper」，影响该条结论强度。
+
+
+STDERR:
+[claude-code:unrecognized_model] {"model":"deepseek-v4-flash","query_source":"generate_session_title"}
+

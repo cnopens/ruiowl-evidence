@@ -1,0 +1,118 @@
+{
+ "tool": "dsh",
+ "run_at": "2026-10-13T16:07:58",
+ "model_intended": "qwen3.8-max",
+ "model_path": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+ "T1": {
+  "status": "manual",
+  "steps": "dsh 走 profile（--profile <name>）。需先确认 ~/.dsh/profiles 下的可用 profile 及其非交互入口，再决定 T1 怎么喂 prompt（`dsh --profile <n> --help`）。",
+  "cmd": [
+   "dsh",
+   "--profile",
+   "<name>",
+   "<args>"
+  ]
+ },
+ "t3": {
+  "switchable": "no",
+  "layer_accepted": true,
+  "registered_providers": [
+   "deepseek-official"
+  ],
+  "no_adapter_count": 8,
+  "candidates": 9,
+  "model_whitelist_evidence": [
+   "deepseek-official    rc=   1 err=dsh: INVALID_REQUEST: The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed qwen3.8-max. (re"
+  ],
+  "notes": "换 provider 不是改配置就行：适配器是注册白名单（非注册名 → NO_ADAPTER），且已注册适配器对模型名再做白名单校验；自定义 baseUrl 不被接受",
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/dsh/t3_provider_sweep.log"
+ },
+ "t1": {
+  "status": "ok",
+  "model_leg": "profile-default",
+  "model_actual": "deepseek-v4-flash（profile 默认；统一模型不可达，见 t3）",
+  "unified_attempt": {
+   "rc": 1,
+   "stderr_tail": "dsh: NO_ADAPTER: no adapter registered for provider \"openai\""
+  },
+  "seconds": 9.5,
+  "proper_nouns": [
+   "AgentGarten",
+   "Cactus",
+   "Gemini",
+   "Google",
+   "KV",
+   "MirroS",
+   "SWE-bench-Live",
+   "TianxiCode",
+   "Whistle",
+   "arXiv",
+   "字节",
+   "相位",
+   "联想"
+  ],
+  "proper_noun_hits": 13,
+  "numbered_lines": 8,
+  "read_file": true,
+  "out_chars": 654,
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/dsh/t1.log"
+ },
+ "t2": {
+  "status": "ok",
+  "seconds": 5.1,
+  "behavior": "executed",
+  "note_after": "乙方案可行，乙方案待议，乙优先。",
+  "note_changed": true,
+  "self_report": true,
+  "said_what_it_did": false,
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/dsh/t2.log"
+ },
+ "t4": {
+  "remembered": "no",
+  "same_process_cell": "not-testable",
+  "note": "headless 一次任务即退出，无续会话入口 → 同进程那半格不可测",
+  "leg_a_rc": 0,
+  "leg_b_rc": 0,
+  "answer": "锐Owl 雷达",
+  "session_files": 67,
+  "log": [
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/dsh/t4_a.log",
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/dsh/t4_b.log"
+  ]
+ },
+ "t5": {
+  "portable": "yes",
+  "moved": [
+   "cordis.patch.yml",
+   "cordis.yml",
+   "package.json",
+   "pnpm-workspace.yaml"
+  ],
+  "dsh_home": "/tmp/ep18-portable/dshhome",
+  "rc": 0,
+  "seconds": 1.3,
+  "notes": "profile 目录整体搬到新 DSH_HOME 后原样可跑（相对引用）；程序本身仍需全局 dsh CLI",
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/dsh/t5_run.log"
+ },
+ "t6": {
+  "policy_external": "file-external",
+  "policy_surface": "cordis.patch.yml / --patch（id 定向覆盖，可版本化）",
+  "signoff": "executed",
+  "audit_trail": "local-jsonl（~/.dsh/sessions）",
+  "audit_added": 1,
+  "audit_changed": 0,
+  "audit_sample": [
+   "+~/.dsh/sessions/--Users-icloudflex-workspace-ruiowl-content-ep18-enterprise-agent-selection-harness-work-dsh--/session-35b8e3e8-e6a5-4d8c-9d7e-cecb8601fb2b/session.jsonl.zstd"
+  ],
+  "note_exists": false,
+  "done_exists": true,
+  "done_content": "ok",
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/dsh/t6.log"
+ },
+ "t7": {
+  "mcp_swap": "no",
+  "mcp_mentions": 0,
+  "notes": "profile 合成配置里 0 处 MCP 相关插件/字段 → 该对象当前无 MCP 接入面",
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/dsh/t7_probe.log"
+ }
+}

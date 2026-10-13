@@ -1,0 +1,8 @@
+$ bash -lc dsh --profile headless --dump-config | grep -ci -E 'mcp|model-context-protocol'
+--- exit=1  0.1s  2026-10-13T16:07:58 ---
+STDOUT:
+0
+
+
+STDERR:
+

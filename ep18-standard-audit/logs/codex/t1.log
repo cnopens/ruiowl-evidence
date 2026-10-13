@@ -1,0 +1,356 @@
+$ codex exec --skip-git-repo-check -c model_providers.tokenplan={name="TokenPlan",base_url="https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",env_key="TP_KEY",wire_api="responses"} -c model_provider=tokenplan -c model="qwen3.8-max" 请先读这个文件：<workdir>/input/radar-2026-10-09.md（中文长文）。然后只输出两段：第一段『要点』给 5 条（每条不超过 40 字，须含文中专名）；第二段『待核清单』给 3 条（每条说明要核什么、为什么）。不要复述全文，不要客套。
+--- exit=0  129.9s  2026-10-13T16:17:09 ---
+STDOUT:
+**要点**
+- `Gemini agent`：Coworker 邮箱与四种记忆，可换 Claude
+- Cactus Whistle：16.9 MB 单文件跑 CPU，覆盖七语言
+- 字节 Seed：分块 KV 压缩造成相位敏感，检索率差 40 pp
+- MirroS AgentGarten：代码管物理，神经渲染器管光影
+- 联想 TianxiCode：SWE-bench-Live 71%，厂商口径
+
+**待核清单**
+- 核 `swe-bench-live.github.io` 榜单是否有 TianxiCode 71% 的 Verified 记录（本轮因 JS 渲染未抓到）：现证据只有联想供稿、量子位转载，无第三方复核与复现物；核到才能把 ⑤ 从 🟡 升 🟢，否则「全球第一」只能当厂商口径，不能进企业选型结论。
+- 核 arXiv 2609.36322 正文/表格是否给出 DeepSeek 分档值（V4-Flash-Base 40.2 pp、V4-Pro-Base 34.8 pp、后训练 19.1 / 14.8 / 6.1 pp，周期 4→2 token）：摘要只写 up to 40 percentage points，这组分档来自量子位转述；③ 整条标 🟢，若把媒体数字当论文一手结论搬，会污染该条的证据等级。
+- 核 Google 自报的规模与客户数字（近 500 家客户各超 1 万亿 token、近 90% Fortune 100、PayPal 每周 1000 万次多模型路由、Bradesco 1 小时→5 分钟）：全部出自 Google 单方口径，无客户侧或分析机构佐证；而 ① 正是「企业 agent 选型清单」的主料，引用效果百分比前需确认口径或改为客户自述来源。
+
+
+STDERR:
+Reading additional input from stdin...
+OpenAI Codex v0.144.3
+--------
+workdir: <workdir>/
+model: qwen3.8-max
+provider: tokenplan
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: none
+reasoning summaries: none
+session id: 01a13454-4392-7831-b1e8-eb8320cbc1f2
+--------
+user
+请先读这个文件：<workdir>/input/radar-2026-10-09.md（中文长文）。然后只输出两段：第一段『要点』给 5 条（每条不超过 40 字，须含文中专名）；第二段『待核清单』给 3 条（每条说明要核什么、为什么）。不要复述全文，不要客套。
+warning: Model metadata for `qwen3.8-max` not found. Defaulting to fallback metadata; this can degrade performance and cause issues.
+The user asks to read a file and output two sections. Let me read the file.
+
+exec
+/bin/zsh -lc 'ls -la <workdir>/input/ && wc -c <workdir>/input/radar-2026-10-09.md' in <workdir>/
+ succeeded in 0ms:
+total 64
+drwxr-xr-x@ 3 icloudflex  staff     96 Oct 13 16:14 .
+drwxr-xr-x@ 4 icloudflex  staff    128 Oct 13 16:14 ..
+-rw-r--r--@ 1 icloudflex  staff  32051 Oct 13 16:14 radar-2026-10-09.md
+   32051 <workdir>/input/radar-2026-10-09.md
+
+Let me read the file. 32KB, that's fine. Let me cat it.
+exec
+/bin/zsh -lc 'cat <workdir>/input/radar-2026-10-09.md' in <workdir>/
+ succeeded in 0ms:
+# 锐Owl 雷达 · 2026-10-09 ✅已发布（2026-10-09 18:0x 入库 ruiowl.com，slug=ruiowl-radar-2026-10-09 / id=58，sort_order=-20261009，parent_id=22（ruiowl-radar）；按 v1.1「写完即发」授权 + v1.2 三字段规格；四项核验：DB 行 ✅（published=t / sort_order=-20261009 / parent_id=22 / 正文 12,683 字 / category=前沿研究）/ 单篇 API 200 ✅（25,205 B，5 组三字段行齐全、素材说明已清洗）/ 子节点顺序 ✅（30 期，10-09 居首）/ 文章页 200 ✅（SPA 壳 562B，正常））
+
+> 本期覆盖 **2026-10-08 18:00 → 10-09 18:00**（北京时间）。今天的主线是**「Agent 往企业里落」和「能力往便宜/端侧压」同时发生**：Google Cloud 端出一整个**通用办公 Agent（Gemini agent）**——带企业身份、四种记忆、可**动态调用 Claude** 的多模型编排；Cactus 把语音识别塞进 **16.9 MB 单文件**、纯 CPU、七语言；ByteDance Seed 则给出「**DeepSeek 时强时弱**」的机制解释——**分块 KV 压缩**导致同一信息检索率最高相差 **40 个百分点**；MirroS 的 **AgentGarten** 把「代码世界」接上神经渲染器，让智能体在实时试炼场里自我进化；另有联想 **TianxiCode 配 DeepSeek-v4.1-Flash 登顶 SWE-bench-Live**，官方 Verified 审核。本期 5 条。
+
+## ① 谷歌发布 Gemini agent：把「办公 Agent」做成一个带企业身份、四种记忆、可调多模型（含 Claude）的通用同事（Google Cloud 2026-10-08）
+
+Google Cloud 于 **2026-10-08** 由 CEO **Thomas Kurian** 署名发布《Welcome to Gemini at Work 2026: Introducing the Gemini agent》（官方博客 `datePublished` **2026-10-08**；量子位 **2026-10-09 08:16** 报道）。核心是 **Gemini agent**——官方定位「**你新的、单一、通用的办公 Agent**」，把问答、知识工作、图像与媒体创作、写代码与跑代码收进**同一个 Agent 与同一个 API**；原则一句话：「**你给它目标，不给它步骤**（You give it objectives, not instructions）」。四条架构原则：**① 统一 Agent**（一个界面里问答 / 自主执行 / 生成代码 / 定时任务 / 事件触发）；**② 无处不在**（web / iOS / Android / Windows / macOS，及命令行、Google Workspace、Microsoft 365、Slack 等任意渠道，还能作为**无头（headless）agent** 嵌入第三方应用）；**③ 云端持久执行**（单一套记忆、上下文与 personalization graph，跨设备/渠道一致，「关掉笔记本后任务继续跑」）；**④ 多 Agent 编排**（按需**动态生成带各自身份的临时子 Agent**，可并行/串行跑数小时到数天）。在此之上抛出一个新产品形态——**Coworker agent（同事智能体）**：拥有**持久、明确的角色与独立身份**，含**自己的 `@agents. company.com` 邮箱、独立持久存储**，只访问你或团队授权的上下文，并出现在公司**通讯录**里（团队成员可像 @ 同事一样 @ 它）。记忆分**四种**：**会话记忆**（当前任务上下文，任务跨天也记得进度）、**语义记忆**（读文档/交流/协作中沉淀的结构化知识库，如公司产品、成员分工、内部术语）、**程序性记忆**（某类工作怎么做，**含 agent 自己写的 skills**）、**情景记忆**（过去做过什么）。模型层刻意解耦：**「Gemini 是 agent，底下的模型是另一个选择」**——现可跨 Google **Gemini 家族与 Anthropic 的 Claude** 动态选择（未来再接更多闭源/开源模型），配套 **Smart Routing** 自动路由与**成本控制**（实时花费上限），并强调「**模型可变，但 agent 积累的上下文、Skills 与企业数据保留**」——模型排名翻篇时，企业不必推翻已建好的工作流。工具体系含连接器（Confluence / Office / Teams / Slack / Workspace、Git / Jira、Salesforce / ServiceNow、BigQuery / Databricks / Postgres / Snowflake、本地文件）+ **任意 MCP server**（内网/外网皆可）+ 企业级 **tools registry**；skills 亦有**全局库 + 公司 registry + 个人 skills**。规模与客户口径（**均为 Google 自报**）：近 **500** 家客户**各自**处理超 **1 万亿** token；近 **80%** 的 Google Cloud 客户在用其 AI 产品；近 **90%** 的 Fortune 100 使用 Gemini Enterprise；**PayPal 每周路由 1000 万次多模型请求**、**Shopify** 混合前沿模型。客户案例：**BNP Paribas**（65,000+ 员工）、**Bradesco**（文档审阅 **1 小时 → 5 分钟**）、**Orange Spain**（1000+ 自定义 agent）、**Santee Cooper**（建模提速至多 **75%**）。
+
+> 认知价值：**① 这条的价值不在「谷歌也做了 Agent」，而在它把「企业交给 AI 的东西」清单化了。** 一个 agent 要真能替公司干活，缺的不是模型，而是**身份（有邮箱、有通讯录位置）、四种记忆（会话/语义/程序/情景）、可治理（权限、审计、留存）**——谷歌这份文档等于把「**企业级 agent 的最小完备集**」写成了产品需求，可以直接当我们的**企业 agent 选型清单**用。**② 最该记的一条是「模型可换、上下文不换」。** 官方明说：底层模型可随时替换，但**agent 积累的上下文、Skills 与企业数据原地保留**。这等于把**可替代性从 agent 层挪到了模型层**——**agent 成为企业的「资产」、模型退化成「耗材」**；配套的 Smart Routing + 多模型（今天已含 Claude）就是这句话的产品化。对我们 10-08 ③（Docker Agent 押「分发层」）是一次呼应：**底座之争已经从「谁的模型强」转向「谁持有上下文与身份」。** **③ 「Coworker agent」是这次真正新的东西。** 给 agent 一个**公司邮箱 + 独立存储 + 通讯录席位**，意味着它被当成**组织协作单元**而非工具：权限按「同事」授予、行为按「同事」追责。这背后的判断题（AI 同事要不要独立身份、出事谁负责）会成为企业落地的真实摩擦点——值得我们在长文里单独拆。**④ 读数字守纪律：** 全部规模与客户数字**都是 Google 自报**（PayPal/Shopify/BNP 等未见第三方复核），因此整条按 🟡 处理；**「机制与产品形态」可用，「效果百分比」只当厂商口径记**。
+
+> 领域：agent-frameworks ｜ 去向：related（挂钩 2026-10-08 ③ Docker Agent「agent 底座/分发」线：Docker 押分发，Google 押「企业身份 + 四种记忆 + 多模型编排」；也可挂钩 10-07 ③ OpenAI Decisions API 的「平台内化」线）｜ 等级：🟡
+
+> 来源：🟢 一手已核（10-09 直读官方博客全文，`datePublished` 2026-10-08）https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026 （Gemini agent 定义为「single, universal agent for work」、四原则原文、Coworker agent 的 `@agents.company.com` 邮箱与独立存储、四种记忆定义、模型可换与 Claude 可调 / Smart Routing、MCP 与 tools/skills registry、规模与客户案例）｜🟡 以上能力的**效果**陈述与全部客户数字均为 **Google 自报口径** → 整条取最保守档 🟡｜🟡 中文转引（10-09 直读）量子位《不等Gemini 4了！谷歌发布办公Agent，支持调用Claude》2026-10-09 08:16 https://www.qbitai.com/2026/10/502083.html ｜⚪ 背景（非本窗口）：官方列出同赛道 OpenAI Dots（2026-09-29）、Meta 个人 AI Agent
+
+## ② Cactus 发布 Whistle：16.9 MB 的端侧语音识别模型，单文件跑 CPU、七语言、首 token 11 ms（Cactus 2026-10-08）
+
+**Cactus（Cactus Compute）** 于 **2026-10-08** 发布 **Whistle**——一个面向手机、穿戴、机器人、智能家居、车机与微控制器（MCU）的**语音识别模型**：**单个 16.9 MB 文件**、**跑 CPU、无依赖**、与同厂 **Needle** **共用同一个 C++ 引擎、同一个容器、同一套量化**。三项能力全在端上：**① 转写**（16 kHz 单声道、单次最长 30 s，覆盖**英语/德语/法语/西班牙语/意大利语/荷兰语/波兰语**，不指定则自动检测语言）；**② 词级时间戳**（每个词的起止与概率，由解码器自身注意力对齐）；**③ 语音嵌入**（编码器输出，**每 80 ms 一帧**，不解码文本）。架构：前端 25 ms 窗 / 10 ms 跳的 **80 维 log-mel**（250–3500 Hz）→ 卷积 stem → **8 层 Simple Attention**（**非因果**，与 Needle 共享代码）→ **8 层解码器**（GQA `8q:2kv`、Q/K/V 上 3-tap 因果卷积、第 3/7 层 **engram** 查表）→ **5 beam** 搜索 + **Aho-Corasick** 关键词偏置；解码器支持**分层剪枝**（从 2 层起每档单独训练，`--audio-depth` 加载时选择，编码器永远 8 层）。官方自测基准（**Apple M4 Pro CPU、10 s 音频、各模型跑各自官方 runtime 默认**）：**体积** 16.9 MB vs Whisper base **145.3 MB** vs Moonshine tiny v2 41.9 MB；**首 token 时延** **11.1 ms** vs Whisper 73.2 / Moonshine 22.8；**解码吞吐** **1,319 tok/s** vs Whisper 266 / Moonshine 262；**WER** 在 LibriSpeech test-clean/test-other、SPGISpeech、Earnings-22 与 **FLEURS 平均**上**优于** Whisper base，在 TED-LIUM、AMI 与 **MLS 平均**上**落后**。同厂 **Needle** 仓库 **13.6k★**（定位「2-bit、8–29 MB 的端侧自动化基础模型」）。HN 帖 **766 分 / 152 评论**（**2026-10-08T16:59Z**，北京 **10-09 00:59**），当日前列。
+
+> 认知价值：**① 「16.9 MB」这条数字本身就是论点：** 它把「语音识别要不要上云」这个问题**从成本题改成了部署题**——单文件、纯 CPU、无依赖，意味着**离线、隐私、零边际成本**三件事同时成立；对我们自牧/锐Owl 的视频产线是直接的省事（**转写可以完全本地化**，不必走云 API）。**② 真正的工程亮点是「复用」而不是「小」：** Whistle 与 Needle **共用引擎、容器与量化**，等于**一份运行时、两个模型**——端侧 AI 的门槛不在于单个模型多小，而在于**同一套推理底座能不能装下多个能力**。这和我们看 Agent 的角度一致：**能复用的底座 > 单个指标。** **③ 但基准要按「口径」读：** 表里的对比是**各家自己发布的数字**（Moonshine 仅英文、Whisper 报的 AMI 是 IHM 子集，与另两者口径不同）；官方自己也标「缺柱=原作者未发布」，并声明测音**不出现在训练/验证集**（比对音频校验和与说话人 ID）。所以**「Whistle 全面优于 Whisper」是错的**——它在部分集子赢、部分输，**整条按 🟡 处理**（模型体积/架构等事实可复核，WER 属厂商自测）。**④ 一句延伸：** Whistle 的「分层解码器 + 关键词偏置」是**为落地场景做的取舍**（可裁深度、可强制关键词）——**端侧模型的竞争点正从「能不能跑」转向「能不能按场景裁」**。
+
+> 领域：inference-efficiency ｜ 去向：standalone ｜ 等级：🟡
+
+> 来源：🟢 一手已核（10-09 直读官方博客全文 + GitHub API）https://cactuscompute.com/blog/whistle （release 原文、16.9 MB / CPU 无依赖 / 与 Needle 同引擎同量化、7 语言、三项能力、编码器/解码器架构与 engram、分层解码、体积与时延吞吐基准表、WER 各集子胜负、M4 Pro CPU 测法与「测音不入训练/验证集」声明）｜🟢 一手已核 https://api.github.com/orgs/cactus-compute/repos （`needle` 13,669★，pushed 2026-10-09T05:07Z；`cactus` 引擎 6,113★）｜🟡 基准中的 WER/时延/吞吐均为 **Cactus 自测且与各家自报数字对比（口径不一）** → 整条取最保守档 🟡｜🟡 HN 平台数据（10-09 直查）：766 分 / 152 评论（2026-10-08T16:59Z）
+
+## ③ 字节 Seed 论文揭示 DeepSeek 的「相位敏感性」：分块 KV 压缩让同一信息的检索率最高相差 40 个百分点（arXiv 2026-09-28；量子位 2026-10-09 报道）
+
+论文《**Periodic Weak Spots: Phase Sensitivity from Chunked KV-Cache Compression**》（**arXiv 2609.36322v1，提交 2026-09-28**；作者 Xingyu Zhu、Pu (Luke) Yi、Ziheng Cheng、Ang Lv、Jing Liu、**Lexing Ying**、**Yiyuan Ma**、**Xin Dong**——后两位属**字节 Seed** 团队），中文侧由量子位 **2026-10-09 15:11** 报道（《字节找到了DeepSeek时强时弱的原因》）。核心发现：**分块 KV Cache 压缩**（按固定步长把连续 token 压成更少的缓存条目，用来省长上下文的内存与注意力开销）**额外引入了一个位置坐标——「相位（phase）」**，即 token 相对**压缩窗口边界**的位置。结果是一种系统性不对称：**同一条信息，在某些相位容易检索、在另一些相位难以检索**，作者称之为 **相位敏感性（phase sensitivity）**；在采用该压缩的**大型开源权重模型**里，**长上下文检索准确率在不同相位间最高可相差 40 个百分点**——「**周期性弱区（periodic weak spots）**，被平均基准分掩盖」。为坐实机制，团队**从零预训练了一族 transformer**（多种 KV 压缩设计）复现该现象，并用**因果干预**做机制分析，发现存在**「相位特化」**：不同注意力组件对检索**不同源相位**信息的贡献不对称；随后对理想化检索模型的分析显示，**梯度流动态可能偏好尖锐的相位特化**。论文结论很硬：**评测分块 KV 压缩的模型，必须跨相位测量——高平均准确率可与系统性位置失败并存。** 量子位补充的 **DeepSeek 具体数字**：**DeepSeek-V4-Flash-Base 不同位置最大差 40.2 个百分点**、**V4-Pro-Base 34.8 pp**；后训练后收窄为 **V4-Flash-0731 19.1 pp**、**V4-Pro-0813 14.8 pp**、**V4.1-Flash-0910 6.1 pp**；且**波动周期 V4 为 4 个 token、V4.1 为 2 个 token**，恰对应**两代模型各自的压缩步长**。
+
+> 认知价值：**① 它把「DeepSeek 时强时弱」从玄学变成了机制。** 以前遇到同一题换个无关字符就答错，只能归因「模型抽风」；这篇给出了可复算的解释：**为省内存而做的分块 KV 压缩，给每个 token 派了一个「相位」，而模型对不同相位的信息检索能力天然不对称**——**省内存的优化，引入了一种新的失败模式。** 这条对我们做推理优化的人尤其重要：**优化技术不是白拿的，它有代价，代价往往藏在「平均分看不到的地方」。** **② 最大的方法论价值是那句「平均分掩盖弱区」。** 这与我们 10-08 ⑤（PaperBenchX：分阶段平均 42.8% 掩盖验证短板）**完全同源**——**2026 年 10 月的评测教训在反复出现：一个总分/一个平均值，正在系统性地藏住失败。** 以后评长上下文模型，**必须跨「位置/相位」扫描**，而不是看单点命中率。**③ 数字要分层读：** 「40 个百分点」是**论文摘要自述**（🟢）；而 **40.2 / 34.8 / 19.1 / 14.8 / 6.1** 这组 DeepSeek 专属数字来自**量子位的转述**（🟡）——论文摘要只说「up to 40 percentage points」，**具体到 DeepSeek 的分档值请按媒体口径记**。**④ 一条亮色：** 后训练与架构迭代确实能把差距从 **40.2 pp 压到 6.1 pp**——**问题可缓解，但周期仍在**；这给了「后训练能补多少」一个可量化的样本。
+
+> 领域：eval-evidence ｜ 去向：related（挂钩 2026-10-08 ⑤ PaperBenchX「平均分掩盖失败」同源线；喂养「长上下文 / 推理优化与评测陷阱」待命选题）｜ 等级：🟢
+
+> 来源：🟢 一手已核（10-09 直读 arXiv 摘要页原文）https://arxiv.org/abs/2609.36322 《Periodic Weak Spots: Phase Sensitivity from Chunked KV-Cache Compression》，**Submitted on 28 Sep 2026**（提交日实际发生日写作 **2026-09-28**）——摘要原文（phase 定义、up to 40 percentage points、从零预训练复现、因果干预下的 phase specialization、梯度流偏好、评测结论）｜🟡 DeepSeek 专属数字为媒体转述（10-09 直读）量子位《字节找到了DeepSeek时强时弱的原因》2026-10-09 15:11 https://www.qbitai.com/2026/10/502364.html （V4-Flash-Base 40.2 pp / V4-Pro-Base 34.8 pp / 后训练 19.1、14.8、6.1 pp；周期 4→2 token 对应压缩步长；FP8 代码补全案例 8 vs 32、概率 71.3%/26.4% 与 91.5%/7.2%）｜论文链接经量子位给出为 `arxiv.org/pdf/2609.36322`，与 abs 页一致｜**日期说明：论文 2026-09-28 上传，量子位 10-09 报道**，正文已按实际发生日标注
+
+## ④ AgentGarten：把「代码世界」接上神经渲染器，让智能体在实时试炼场里边玩边进化（arXiv 2026-10-08）
+
+**MirroS 团队**于 **2026-10-08** 发布 **AgentGarten**（技术报告 **arXiv 2610.12374，提交 2026-10-08**；代码 **MirroS-Lab/AgentGarten**，**Apache-2.0**、**89★**、created **2026-10-08**；渲染器 checkpoint 放 HF，项目页 `mirros-lab.github.io/agent-garten`，博客 `mirros.ai/blog`）。它要解决一个两难：智能体要学东西，环境必须**既真实（faithful：状态、规则、动力学一致）又写实（realistic：观测符合真实世界的视觉分布）**，而两者兼得是瓶颈。AgentGarten 的分工是——**模拟器/游戏引擎维持持久世界状态、执行程序化交互规则（管物理）；一个共享神经渲染器从各世界通过统一接口导出的深度与表面法线，生成智能体的视觉观测（管光影）**，做到 **>30 fps 实时交互**。渲染器做法：把**预训练视频模型**适配到**几何条件**上，用其提出的 **Adversarial Forcing** 蒸馏（**让 history prefilling 通过精确重放可微**，从而让后续预测的损失反传、更新渲染器**如何编码先前观测**；再叠加真实数据的对抗监督提升画质），并针对实时交互优化推理。在这一环境里，智能体**每轮把经验蒸馏成 playbook**，供后续 agent 继承与精炼。经典**捉迷藏（hide-and-seek）**复现：**躲藏者第 4 轮学会搬挡板搭掩体、搜寻者第 10 轮学会借坡道翻墙**（据称重做了 **2500 万局**）；捉迷藏场景中的策略如「搬挡板封堵掩体、架坡道翻越高墙、首跳失误后主动调整重试」。
+
+> 认知价值：**① 这条的题眼是「环境的成本结构」被改了。** 过去要造 100 个写实仿真环境，得靠美术团队建模、贴皮、打光（**美术劳动密集型**）；AgentGarten 只要能输出**简单的三维深度与法线**，任何极简代码场景都能**直接套用同一个神经渲染器**拿到写实光影——**环境扩充从「劳动密集」变成「代码程序化」**。对任何想做 agent 训练/评测的人来说，这是**分母级**的改善。**② 「物理交给代码、光影交给神经模型」是对世界模型路线的一个务实折中。** 纯视频世界模型画面漂亮，但**物理是隐式的、不可查询、不可干预**（倒不出「杯里还剩多少水」，也写不了任务裁判规则）；纯代码引擎状态精确却画面粗糙。把两者按「确定性 vs 观感」切开，等于**只要代码环境能被查询和裁判，训练环境就不是黑盒**——这和我们做评测时「不认输出、只认重放」的纪律是同一思路。**③ 与我们既有线的接口很清晰：** 它和 10-06 ③ HERA、10-07 ⑤ AdvSim2Real 同属「**harness / 环境共演化**」家族——**agent 能力的上限，越来越由它练手的环境决定**。这条可留作一期「智能体训练环境与自我进化」选题的主料。**④ 读法：** 论文/仓库事实 🟢；但「2500 万局」「第 4/10 轮学会」等具体战绩出自**作者自述与量子位转引**，**按 🟡 记**，不必当独立复核的数字搬。
+
+> 领域：agent-frameworks ｜ 去向：feeds（喂养「智能体训练环境与自我进化」选题；可与 10-06 ③ HERA、10-07 ⑤ AdvSim2Real 的 harness/环境共演化家族并期）｜ 等级：🟢
+
+> 来源：🟢 一手已核（10-09 直读 arXiv 摘要 + GitHub API + README 原文）https://arxiv.org/abs/2610.12374 《AgentGarten: Code Worlds for Evolving Agents》，**Submitted on 8 Oct 2026**（`Adversarial Forcing`、exact replay 使 history prefilling 可微、renderer 由预训练视频模型适配几何条件）｜https://api.github.com/repos/MirroS-Lab/AgentGarten （Apache-2.0、89★、created 2026-10-08T03:53Z、pushed 2026-10-09T06:40Z、Python；README 原文「Code determines how the world changes, and the renderer learns how those changes should look.」、HF checkpoints、paper 徽标指向 2610.12374）｜🟡 「2500 万局 / 第 4、10 轮学会 / >30 fps」等战绩转引（10-09 直读）量子位《代码造世界，扩散绘现实：AgentGarten让智能体在实时试炼场中边玩边进化》2026-10-09 10:03 https://www.qbitai.com/2026/10/502096.html
+
+## ⑤ 联想 TianxiCode 配 DeepSeek-v4.1-Flash 登顶 SWE-bench-Live（Lite），71% 通过官方 Verified 审核（厂商口径 2026-10-09）
+
+量子位 **2026-10-09 16:53** 刊出（**注明「本文由联想提供，量子位获授权转载」**）：联想天禧 AI 自研的**代码智能体框架 TianxiCode** 配合 **DeepSeek-v4.1-Flash**，在 **SWE-bench-Live（Lite 分榜）** 以 **71% 的问题解决率登顶全球第一**，并**通过官方「Verified」核验**（要求提交**全链路智能体运行轨迹**，由官方审查评测输入与信息隔离、排查是否向智能体泄露标准答案/测试用例）。官方口径把系统拆成两半：**DeepSeek-v4.1-Flash 是「大脑」（读代码、理解语义、构思解法），TianxiCode 是「眼、手、工具箱与工作流规范」**；强调三项工程能力——**跨文件多跳检索 + 精准上下文管理（Context Pruning & Slicing）**、**自驱动规划 + 多轮工具调用**、**闭环补丁生成 + 测试驱动自愈**（在隔离环境自动跑码，报错或破坏其他功能就自我反思修改至通过）。天禧 AI 称该能力未来将落到联想 AI 硬件产品中。
+
+> 认知价值：**① 这条的看点不是「中国厂商拿了第一」，而是它把「harness 决定成绩」又一次摆上台面。** 官方自己的对比逻辑是：**「再聪明的模型，离开能敲代码、查日志的『手』和严谨工作习惯，也解决不了复杂工程里的 Bug」**——**同一个 DeepSeek-v4.1-Flash，配上不同工程框架，结果不同。** 这与我们 10-08 ③（Docker Agent：**harness 之间拼的是生态与分发，不是技术壁垒**）是同一判断的两面：**模型越来越是一件可替换的「耗材」，真正的差异化在 harness（检索/规划/自愈的工程闭环）。** **② 「Verified」机制值得单独记一笔。** SWE-bench-Live 从 2026-08 起加强提交核验、**要求交轨迹以证明答案隔离**——这是评测界对「刷榜/污染」的制度性回应，方向正确，我们可以把它当成「**什么才叫可信的 agent 榜单**」的样例。**③ 但读法必须保守：** 这是**厂商 PR**，**71% 未经第三方独立复核**，也没有公开可跑的复现物；因此**整条按 🟡 处理**——**「71% 全球第一」只当厂商口径记，不当行业事实搬。** 若要成选题，下一步应回 **SWE-bench-Live 官方榜单**核该条记录，再决定是否升级为 🟢。**④ 对我们的直接含义：** 这条和中国模型（DeepSeek）＋工程框架的组合，正好是「**效率是衡量标准**」的一个国内样本——**同等预算下，工程架构能榨出多少模型潜能**，是我们评测线值得跟的一个方向。
+
+> 领域：eval-evidence ｜ 去向：related（挂钩 2026-10-08 ③ Docker Agent「harness 决定生态」线；喂养「harness × 模型 = 成绩」评测选题）｜ 等级：🟡
+
+> 来源：🟡 厂商口径（10-09 直读）量子位《联想天禧自研代码智能体TianxiCode斩获SWE-bench-Live全球第一》2026-10-09 16:53 https://www.qbitai.com/2026/10/502422.html （**文末注明「本文由联想提供，量子位获授权转载」**；71% 通过率、Lite 分榜、Verified 核验、三项工程能力、TianxiCode 定位与将落地联想硬件）｜🟢 背景已核：SWE-bench-Live 官方站点声明「2026-08 起加强提交核验、要求提交 agent rollout trajectories 以保证答案隔离」 https://swe-bench-live.github.io/ （说明 Verified 机制真实存在；但**本站未在本轮抓到 TianxiCode 的榜单记录**，71% 仍属厂商口径）｜⚠️ 无第三方复核、无公开复现物 → 整条 🟡
+
+*素材覆盖说明（非正文）：
+
+**本期主源与窗口**：窗口 **2026-10-08 18:00 → 10-09 18:00（北京时间）**。中文源：量子位 WP REST 直查（10-09 18:00）当日新稿 **12 条**（10-09 08:16 谷歌 Gemini Agent / 08:35 陶哲轩宣战 / 10:03 AgentGarten / 10:37 openJiuwen AgentOS / 10:51 尊界刹车 / 11:52 清华星动纪元 VPP2 / 12:15 Sharpa / 14:28 柳叶刀 AI 医患 / 15:11 字节 DeepSeek 相位敏感性 / 16:47 因果智能 / 16:53 TianxiCode / 17:19 TRAE 融合），另含 10-08 当晚 3 条（18:23 联想 YOGA RTX Spark / 20:43 正行创新 / 21:28 GTA6 用 AI）。本期主源以**英文一手**为主：Google Cloud 官方博客、Cactus 官方博客 + GitHub API、arXiv API（2609.36322 / 2610.12374）、HN Algolia API、OpenRouter 模型 API、SWE-bench-Live 官方站点。
+
+**一手核清单（均 10-09 直读）**：cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026（全文；`datePublished` **2026-10-08**）｜cactuscompute.com/blog/whistle（全文；release、架构、基准表、M4 Pro CPU 测法、测音不入训练集声明）｜api.github.com/orgs/cactus-compute/repos（needle 13,669★ / cactus 6,113★）｜arxiv.org/abs/2609.36322（摘要原文，Submitted **28 Sep 2026**）｜arxiv.org/abs/2610.12374（摘要原文，Submitted **8 Oct 2026**）｜api.github.com/repos/MirroS-Lab/AgentGarten（元信息 + README 原文）｜hn.algolia.com（front_page + search：Whistle 766/152、DeepSeek-freak-out 765/638、Step 5 127/31）｜openrouter.ai/api/v1/models（step-5-preview 1M ctx、$1/$2.7 per M）｜swe-bench-live.github.io（官方 Verified 核验机制声明）。**检索路径与坑**：① Google 博客的候选短 URL `/…/introducing-gemini-agent` **404**，正确路径为 `/…/welcome-to-gemini-at-work-2026`（经 web_search 定位）；Google 博客 curl **必须带浏览器 UA** 才能取到 `<article>` 正文。② **`web_extract` 工具对 cloud.google.com / cactuscompute.com / mirros.ai 一律返「Blocked: private or internal network address」（探测误判）**，改 curl + UA 直读。③ arXiv **`id_list=` 参数本轮仍不稳**，改用 `search_query=` 定位（phase 论文即如此命中）；单篇摘要走 `arxiv.org/abs/<id>` 直读稳定。④ 量子位走 WP REST（带 UA）。⑤ SWE-bench-Live 榜单页为 JS 渲染，本轮**未抓到 TianxiCode 记录**（故 ⑤ 严格留 🟡）。
+
+⚠️ **未采用清单与理由**：**清华星动纪元 VPP2 登顶 RoboDojo（10-09 11:52）**——世界动作模型榜单+真机自测，**厂商/媒体口径**、无一手论文开放，留作**待命素材**（与「具身评测/世界模型」线可并期）。**Sharpa D01/W02/AE01（10-09 12:15）**——IROS 硬件发布，非框架/效率主线，留待命。**openJiuwen 企业级 AgentOS 开源（10-09 10:37）**——华为系开源 Agent 底座，但 **GitHub 仅 4★**、稿件偏 PR，且与本期 ①「企业 Agent 底座」同题，留作**待命素材**（可与 ① 并期做「国内外企业 agent 底座对读」）。**TRAE 双端融合（10-09 17:19）**——AI Coding 产品更新，留待命。**「0.2 秒急停、秒级重规划」（10-09 16:47）**——厂商宣传，无一手，留待命。**《柳叶刀》AI 医患（10-09 14:28）**——医学社会学研究，非 AI 主线，**不采用**。**尊界刹车踏板（10-09 10:51）**——车企舆情，**不采用**。**10-08 当晚 3 条（联想 YOGA / 正行创新 / GTA6 用 AI）**——消费硬件/厂商/娱乐，**不采用**。**HN 高分非 AI 项**：coffee machine 1TB（698）、Theranos.world（447）、htmx「Yes, and」（437）、DVD menus（303）、ADHD 昼夜节律（300）、$5 VPS（234）、**DuckDB Ducklake（180）**、Bevy 0.20（170）、Quake 移植 Rust（159）、ETH-68（159）——与 AI 主线无关，**不采用**（DuckDB/Bevy 留作工程待命）。**Step 5 Preview（StepFun 1M MoE）冲上 OpenRouter（HN 127 分）**——**预览版**、无官方发布稿与完整规格，信息不足，留待命。**陶哲轩《What should we tell our students?》（HN 114 分）**、**karagila《OpenAI, the Partition Principle, and Mathematics》（121 分）**——均为 10-08 ④「AI 数学」线的**延续讨论**，非新事件，留待命。**arXiv 10-08 新稿簇**（FastBench 2610.12427、WOVEN 2610.12417、ViSkill、SpaceCast-Bench、OnTrack 2610.12375、SGUID 2610.12367、HarnessSQL 2610.12274、TokenRouter、Language Models as AI Research World Models、DiffuPlex 等）——质量不错但影响力**未到成条**，留待命；其中 **HarnessSQL / OnTrack / SGUID** 与「harness/轨迹」家族相关，后续可并期。
+
+⚠️ **重复与让位核对**：**企业 Agent**——10-07 ③ OpenAI Decisions API（内化「输出形状」）、10-08 ② GPT-6 + Intelligent UI（内化「界面」），本期 ① 谷歌 Gemini agent 是**新轴（企业身份 + 四种记忆 + 多模型编排）**，不重述。**评测「平均分掩盖失败」**——10-08 ⑤ PaperBenchX（验证阶段 42.8%），本期 ③ DeepSeek 相位敏感性（跨位置 40pp）是**独立新事件**、同方法论主题，两期对读构成「**平均分的两种失效**」。**端侧/便宜端**——10-08 ① Haiku 5.5 是**云端**便宜端，本期 ② Whistle 是**端侧**小模型，对读构成完整光谱。**Agent 环境/训练**——10-06 ③ HERA、10-07 ⑤ AdvSim2Real，本期 ④ AgentGarten 首次成条，同家族。**harness**——10-08 ③ Docker Agent（押分发），本期 ⑤ TianxiCode（harness × 模型 = 成绩）首次以**中国样本**成条。**Docker Agent / PaperBenchX / Haiku 5.5** 均属 10-08 期，本期无重复。
+
+⚠️ **日期校准（逐条已写进正文，凡「发生日」均回原页核）**：**①** Google 博客 `datePublished` **2026-10-08**（Thomas Kurian 署名；量子位 **10-09 08:16** 转引，称「今天凌晨」）；**②** Cactus 博客 release 日 **2026-10-08**、HN created **2026-10-08T16:59Z**（北京 **10-09 00:59**）、needle 仓库 pushed **2026-10-09T05:07Z**；**③** 论文 **Submitted 2026-09-28**（正文按实际发生日写 09-28，量子位报道 **10-09 15:11**）；**④** 论文 **Submitted 2026-10-08**、仓库 created **2026-10-08T03:53Z**、pushed **2026-10-09T06:40Z**、量子位报道 **10-09 10:03**；**⑤** 量子位刊文 **2026-10-09 16:53**（联想供稿）。**证据等级小结**：①🟡 ②🟡 ③🟢 ④🟢 ⑤🟡——① 取 🟡 是能力效果与客户数字**全为 Google 自报**；② 取 🟡 是 WER/时延/吞吐为 **Cactus 自测且与各家自报数字跨口径对比**；③ 取 🟢 是**论文摘要为一手且可复算**（其 DeepSeek 专属数字另按 🟡 标注）；④ 取 🟢 是**论文/仓库事实可独立复核**（具体战绩另按 🟡）；⑤ 取 🟡 是 **71% 为厂商 PR、无第三方复核与复现物**。**断档检查**：对照专栏子节点（**29 期**，最新 `ruiowl-radar-2026-10-08` id=57），`radar/` 目录**无「已写完未上线」的草稿**；10-03 / 10-04 为周末不生成；本轮**无断档需补发**。
+
+
+
+The output was truncated — I only saw the beginning and the end. I need the middle sections (②③④⑤). Let me read the file in chunks to see the middle content.
+
+Let me use sed to read specific line ranges.
+exec
+/bin/zsh -lc "awk 'NR>=1 && NR<=12' <workdir>/input/radar-2026-10-09.md | cut -c1-3000 | tail -n +4" in <workdir>/
+ succeeded in 0ms:
+
+## ① 谷歌发布 Gemini agent：把「办公 Agent」做成一个带企业身份、四种记忆、可调多模型（含 Claude）的通用同事（Google Cloud 2026-10-08）
+
+Google Cloud 于 **2026-10-08** 由 CEO **Thomas Kurian** 署名发布《Welcome to Gemini at Work 2026: Introducing the Gemini agent》（官方博客 `datePublished` **2026-10-08**；量子位 **2026-10-09 08:16** 报道）。核心是 **Gemini agent**——官方定位「**你新的、单一、通用的办公 Agent**」，把问答、知识工作、图像与媒体创作、写代码与跑代码收进**同一个 Agent 与同一个 API**；原则一句话：「**你给它目标，不给它步骤**（You give it objectives, not instructions）」。四条架构原则：**① 统一 Agent**（一个界面里问答 / 自主执行 / 生成代码 / 定时任务 / 事件触发）；**② 无处不在**（web / iOS / Android / Windows / macOS，及命令行、Google Workspace、Microsoft 365、Slack 等任意渠道，还能作为**无头（headless）agent** 嵌入第三方应用）；**③ 云端持久执行**（单一套记忆、上下文与 personalization graph，跨设备/渠道一致，「关掉笔记本后任务继续跑」）；**④ 多 Agent 编排**（按需**动态生成带各自身份的临时子 Agent**，可并行/串行跑数小时到数天）。在此之上抛出一个新产品形态——**Coworker agent（同事智能体）**：拥有**持久、明确的角色与独立身份**，含**自己的 `@agents. company.com` 邮箱、独立持久存储**，只访问你或团队授权的上下文，并出现在公司**通讯录**里（团队成员可像 @ 同事一样 @ 它）。记忆分**四种**：**会话记忆**（当前任务上下文，任务跨天也记得进度）、**语义记忆**（读文档/交流/协作中沉淀的结构化知识库，如公司产品、成员分工、内部术语）、**程序性记忆**（某类工作怎么做，**含 agent 自己写的 skills**）、**情景记忆**（过去做过什么）。模型层刻意解耦：**「Gemini 是 agent，底下的模型是另一个选择」**——现可跨 Google **Gemini 家族与 Anthropic 的 Claude** 动态选择（未来再接更多闭源/开源模型），配套 **Smart Routing** 自动路由与**成本控制**（实时花费上限），并强调「**模型可变，但 agent 积累的上下文、Skills 与企业数据保留**」——模型排名翻篇时，企业不必推翻已建好的工作流。工具体系含连接器（Confluence / Office / Teams / Slack / Workspace、Git / Jira、Salesforce / ServiceNow、BigQuery / Databricks / Postgres / Snowflake、本地文件）+ **任意 MCP server**（内网/外网皆可）+ 企业级 **tools registry**；skills 亦有**全局库 + 公司 registry + 个人 skills**。规模与客户口径（**均为 Google 自报**）：近 **500** 家客户**各自**处理超 **1 万亿** token；近 **80%** 的 Google Cloud 客户在用其 AI 产品；近 **90%** 的 Fortune 100 使用 Gemini Enterprise；**PayPal 每周路由 1000 万次多模型请求**、**Shopify** 混合前沿模型。客户案例：**BNP Paribas**（65,000+ 员工）、**Bradesco**（文档审阅 **1 小时 → 5 分钟**）、**Orange Spain**（1000+ 自定义 agent）、**Santee Cooper**（建模提速至多 **75%**）。
+
+> 认知价值：**① 这条的价值不在「谷歌也做了 Agent」，而在它把「企业交给 AI 的东西」清单化了。** 一个 agent 要真能替公司干活，缺的不是模型，而是**身份（有邮箱、有通讯录位置）、四种记忆（会话/语义/程序/情景）、可治理（权限、审计、留存）**——谷歌这份文档等于把「**企业级 agent 的最小完备集**」写成了产品需求，可以直接当我们的**企业 agent 选型清单**用。**② 最该记的一条是「模型可换、上下文不换」。** 官方明说：底层模型可随时替换，但**agent 积累的上下文、Skills 与企业数据原地保留**。这等于把**可替代性从 agent 层挪到了模型层**——**agent 成为企业的「资产」、模型退化成「耗材」**；配套的 Smart Routing + 多模型（今天已含 Claude）就是这句话的产品化。对我们 10-08 ③（Docker Agent 押「分发层」）是一次呼应：**底座之争已经从「谁的模型强」转向「谁持有上下文与身份」。** **③ 「Coworker agent」是这次真正新的东西。** 给 agent 一个**公司邮箱 + 独立存储 + 通讯录席位**，意味着它被当成**组织协作单元**而非工具：权限按「同事」授予、行为按「同事」追责。这背后的判断题（AI 同事要不要独立身份、出事谁负责）会成为企业落地的真实摩擦点——值得我们在长文里单独拆。**④ 读数字守纪律：** 全部规模与客户数字**都是 Google 自报**（PayPal/Shopify/BNP 等未见第三方复核），因此整条按 🟡 处理；**「机制与产品形态」可用，「效果百分比」只当厂商口径记**。
+
+> 领域：agent-frameworks ｜ 去向：related（挂钩 2026-10-08 ③ Docker Agent「agent 底座/分发」线：Docker 押分发，Google 押「企业身份 + 四种记忆 + 多模型编排」；也可挂钩 10-07 ③ OpenAI Decisions API 的「平台内化」线）｜ 等级：🟡
+
+
+Now let me read the middle sections ②③④⑤. The file has 67 lines. Let me read lines 13-40 or so, but limit character counts. Let me first see line lengths.
+exec
+/bin/zsh -lc "cd <workdir>/input && awk '{print NR\": \"length("'$0)" chars: "substr($0,1,120)}'"' radar-2026-10-09.md" in <workdir>/
+ succeeded in 0ms:
+1: 540 chars: # 锐Owl 雷达 · 2026-10-09 ✅已发布（2026-10-09 18:0x 入库 ruiowl.com，slug=ruiowl-radar-2026-10-09 / id=58�
+2: 0 chars: 
+3: 794 chars: > 本期覆盖 **2026-10-08 18:00 → 10-09 18:00**（北京时间）。今天的主线是**「Agent 往企业里落」�
+4: 0 chars: 
+5: 176 chars: ## ① 谷歌发布 Gemini agent：把「办公 Agent」做成一个带企业身份、四种记忆、可调多模型（�
+6: 0 chars: 
+7: 3161 chars: Google Cloud 于 **2026-10-08** 由 CEO **Thomas Kurian** 署名发布《Welcome to Gemini at Work 2026: Introducing the
+8: 0 chars: 
+9: 1720 chars: > 认知价值：**① 这条的价值不在「谷歌也做了 Agent」，而在它把「企业交给 AI 的东西」清
+10: 0 chars: 
+11: 287 chars: > 领域：agent-frameworks ｜ 去向：related（挂钩 2026-10-08 ③ Docker Agent「agent 底座/分发」线：Dock
+12: 0 chars: 
+13: 861 chars: > 来源：🟢 一手已核（10-09 直读官方博客全文，`datePublished` 2026-10-08）https://cloud.google.com/bl
+14: 0 chars: 
+15: 138 chars: ## ② Cactus 发布 Whistle：16.9 MB 的端侧语音识别模型，单文件跑 CPU、七语言、首 token 11 ms（Ca
+16: 0 chars: 
+17: 1869 chars: **Cactus（Cactus Compute）** 于 **2026-10-08** 发布 **Whistle**——一个面向手机、穿戴、机器人、智�
+18: 0 chars: 
+19: 1499 chars: > 认知价值：**① 「16.9 MB」这条数字本身就是论点：** 它把「语音识别要不要上云」这个问
+20: 0 chars: 
+21: 73 chars: > 领域：inference-efficiency ｜ 去向：standalone ｜ 等级：🟡
+22: 0 chars: 
+23: 767 chars: > 来源：🟢 一手已核（10-09 直读官方博客全文 + GitHub API）https://cactuscompute.com/blog/whistle （r
+24: 0 chars: 
+25: 191 chars: ## ③ 字节 Seed 论文揭示 DeepSeek 的「相位敏感性」：分块 KV 压缩让同一信息的检索率最高相
+26: 0 chars: 
+27: 1951 chars: 论文《**Periodic Weak Spots: Phase Sensitivity from Chunked KV-Cache Compression**》（**arXiv 2609.36322v1，提交
+28: 0 chars: 
+29: 1487 chars: > 认知价值：**① 它把「DeepSeek 时强时弱」从玄学变成了机制。** 以前遇到同一题换个无关�
+30: 0 chars: 
+31: 206 chars: > 领域：eval-evidence ｜ 去向：related（挂钩 2026-10-08 ⑤ PaperBenchX「平均分掩盖失败」同源线；
+32: 0 chars: 
+33: 987 chars: > 来源：🟢 一手已核（10-09 直读 arXiv 摘要页原文）https://arxiv.org/abs/2609.36322 《Periodic Weak Sp
+34: 0 chars: 
+35: 136 chars: ## ④ AgentGarten：把「代码世界」接上神经渲染器，让智能体在实时试炼场里边玩边进化（arX
+36: 0 chars: 
+37: 1591 chars: **MirroS 团队**于 **2026-10-08** 发布 **AgentGarten**（技术报告 **arXiv 2610.12374，提交 2026-10-08**；代
+38: 0 chars: 
+39: 1540 chars: > 认知价值：**① 这条的题眼是「环境的成本结构」被改了。** 过去要造 100 个写实仿真环�
+40: 0 chars: 
+41: 211 chars: > 领域：agent-frameworks ｜ 去向：feeds（喂养「智能体训练环境与自我进化」选题；可与 10-06 �
+42: 0 chars: 
+43: 894 chars: > 来源：🟢 一手已核（10-09 直读 arXiv 摘要 + GitHub API + README 原文）https://arxiv.org/abs/2610.12374
+44: 0 chars: 
+45: 144 chars: ## ⑤ 联想 TianxiCode 配 DeepSeek-v4.1-Flash 登顶 SWE-bench-Live（Lite），71% 通过官方 Verified 审核（�
+46: 0 chars: 
+47: 1038 chars: 量子位 **2026-10-09 16:53** 刊出（**注明「本文由联想提供，量子位获授权转载」**）：联想天�
+48: 0 chars: 
+49: 1589 chars: > 认知价值：**① 这条的看点不是「中国厂商拿了第一」，而是它把「harness 决定成绩」又�
+50: 0 chars: 
+51: 184 chars: > 领域：eval-evidence ｜ 去向：related（挂钩 2026-10-08 ③ Docker Agent「harness 决定生态」线；喂养
+52: 0 chars: 
+53: 766 chars: > 来源：🟡 厂商口径（10-09 直读）量子位《联想天禧自研代码智能体TianxiCode斩获SWE-bench-Liv
+54: 0 chars: 
+55: 37 chars: *素材覆盖说明（非正文）：
+56: 0 chars: 
+57: 792 chars: **本期主源与窗口**：窗口 **2026-10-08 18:00 → 10-09 18:00（北京时间）**。中文源：量子位 WP RES
+58: 0 chars: 
+59: 1613 chars: **一手核清单（均 10-09 直读）**：cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work
+60: 0 chars: 
+61: 2281 chars: ⚠️ **未采用清单与理由**：**清华星动纪元 VPP2 登顶 RoboDojo（10-09 11:52）**——世界动作模�
+62: 0 chars: 
+63: 1022 chars: ⚠️ **重复与让位核对**：**企业 Agent**——10-07 ③ OpenAI Decisions API（内化「输出形状」）、
+64: 0 chars: 
+65: 1439 chars: ⚠️ **日期校准（逐条已写进正文，凡「发生日」均回原页核）**：**①** Google 博客 `datePubl
+66: 0 chars: 
+67: 0 chars: 
+
+Now I need to read the body content lines: 15-53 (sections ②③④⑤). Let me read lines 15-17, 19, 21, 23 etc. Total chars: 138+1869+1499+73+767 = ~3.6k chars for section ②; ③: 191+1951+1487+206+987 = ~4.8k; ④: 136+1591+1540+211+894 = ~4.4k; ⑤: 144+1038+1589+184+766 = ~3.7k. Total ~16.5k chars ≈ maybe 10k tokens. That's fine to read in two chunks.
+
+Let me read lines 15-33 first (sections ② and ③).
+exec
+/bin/zsh -lc "cd <workdir>/input && sed -n '15,33p' radar-2026-10-09.md" in <workdir>/
+ succeeded in 0ms:
+## ② Cactus 发布 Whistle：16.9 MB 的端侧语音识别模型，单文件跑 CPU、七语言、首 token 11 ms（Cactus 2026-10-08）
+
+**Cactus（Cactus Compute）** 于 **2026-10-08** 发布 **Whistle**——一个面向手机、穿戴、机器人、智能家居、车机与微控制器（MCU）的**语音识别模型**：**单个 16.9 MB 文件**、**跑 CPU、无依赖**、与同厂 **Needle** **共用同一个 C++ 引擎、同一个容器、同一套量化**。三项能力全在端上：**① 转写**（16 kHz 单声道、单次最长 30 s，覆盖**英语/德语/法语/西班牙语/意大利语/荷兰语/波兰语**，不指定则自动检测语言）；**② 词级时间戳**（每个词的起止与概率，由解码器自身注意力对齐）；**③ 语音嵌入**（编码器输出，**每 80 ms 一帧**，不解码文本）。架构：前端 25 ms 窗 / 10 ms 跳的 **80 维 log-mel**（250–3500 Hz）→ 卷积 stem → **8 层 Simple Attention**（**非因果**，与 Needle 共享代码）→ **8 层解码器**（GQA `8q:2kv`、Q/K/V 上 3-tap 因果卷积、第 3/7 层 **engram** 查表）→ **5 beam** 搜索 + **Aho-Corasick** 关键词偏置；解码器支持**分层剪枝**（从 2 层起每档单独训练，`--audio-depth` 加载时选择，编码器永远 8 层）。官方自测基准（**Apple M4 Pro CPU、10 s 音频、各模型跑各自官方 runtime 默认**）：**体积** 16.9 MB vs Whisper base **145.3 MB** vs Moonshine tiny v2 41.9 MB；**首 token 时延** **11.1 ms** vs Whisper 73.2 / Moonshine 22.8；**解码吞吐** **1,319 tok/s** vs Whisper 266 / Moonshine 262；**WER** 在 LibriSpeech test-clean/test-other、SPGISpeech、Earnings-22 与 **FLEURS 平均**上**优于** Whisper base，在 TED-LIUM、AMI 与 **MLS 平均**上**落后**。同厂 **Needle** 仓库 **13.6k★**（定位「2-bit、8–29 MB 的端侧自动化基础模型」）。HN 帖 **766 分 / 152 评论**（**2026-10-08T16:59Z**，北京 **10-09 00:59**），当日前列。
+
+> 认知价值：**① 「16.9 MB」这条数字本身就是论点：** 它把「语音识别要不要上云」这个问题**从成本题改成了部署题**——单文件、纯 CPU、无依赖，意味着**离线、隐私、零边际成本**三件事同时成立；对我们自牧/锐Owl 的视频产线是直接的省事（**转写可以完全本地化**，不必走云 API）。**② 真正的工程亮点是「复用」而不是「小」：** Whistle 与 Needle **共用引擎、容器与量化**，等于**一份运行时、两个模型**——端侧 AI 的门槛不在于单个模型多小，而在于**同一套推理底座能不能装下多个能力**。这和我们看 Agent 的角度一致：**能复用的底座 > 单个指标。** **③ 但基准要按「口径」读：** 表里的对比是**各家自己发布的数字**（Moonshine 仅英文、Whisper 报的 AMI 是 IHM 子集，与另两者口径不同）；官方自己也标「缺柱=原作者未发布」，并声明测音**不出现在训练/验证集**（比对音频校验和与说话人 ID）。所以**「Whistle 全面优于 Whisper」是错的**——它在部分集子赢、部分输，**整条按 🟡 处理**（模型体积/架构等事实可复核，WER 属厂商自测）。**④ 一句延伸：** Whistle 的「分层解码器 + 关键词偏置」是**为落地场景做的取舍**（可裁深度、可强制关键词）——**端侧模型的竞争点正从「能不能跑」转向「能不能按场景裁」**。
+
+> 领域：inference-efficiency ｜ 去向：standalone ｜ 等级：🟡
+
+> 来源：🟢 一手已核（10-09 直读官方博客全文 + GitHub API）https://cactuscompute.com/blog/whistle （release 原文、16.9 MB / CPU 无依赖 / 与 Needle 同引擎同量化、7 语言、三项能力、编码器/解码器架构与 engram、分层解码、体积与时延吞吐基准表、WER 各集子胜负、M4 Pro CPU 测法与「测音不入训练/验证集」声明）｜🟢 一手已核 https://api.github.com/orgs/cactus-compute/repos （`needle` 13,669★，pushed 2026-10-09T05:07Z；`cactus` 引擎 6,113★）｜🟡 基准中的 WER/时延/吞吐均为 **Cactus 自测且与各家自报数字对比（口径不一）** → 整条取最保守档 🟡｜🟡 HN 平台数据（10-09 直查）：766 分 / 152 评论（2026-10-08T16:59Z）
+
+## ③ 字节 Seed 论文揭示 DeepSeek 的「相位敏感性」：分块 KV 压缩让同一信息的检索率最高相差 40 个百分点（arXiv 2026-09-28；量子位 2026-10-09 报道）
+
+论文《**Periodic Weak Spots: Phase Sensitivity from Chunked KV-Cache Compression**》（**arXiv 2609.36322v1，提交 2026-09-28**；作者 Xingyu Zhu、Pu (Luke) Yi、Ziheng Cheng、Ang Lv、Jing Liu、**Lexing Ying**、**Yiyuan Ma**、**Xin Dong**——后两位属**字节 Seed** 团队），中文侧由量子位 **2026-10-09 15:11** 报道（《字节找到了DeepSeek时强时弱的原因》）。核心发现：**分块 KV Cache 压缩**（按固定步长把连续 token 压成更少的缓存条目，用来省长上下文的内存与注意力开销）**额外引入了一个位置坐标——「相位（phase）」**，即 token 相对**压缩窗口边界**的位置。结果是一种系统性不对称：**同一条信息，在某些相位容易检索、在另一些相位难以检索**，作者称之为 **相位敏感性（phase sensitivity）**；在采用该压缩的**大型开源权重模型**里，**长上下文检索准确率在不同相位间最高可相差 40 个百分点**——「**周期性弱区（periodic weak spots）**，被平均基准分掩盖」。为坐实机制，团队**从零预训练了一族 transformer**（多种 KV 压缩设计）复现该现象，并用**因果干预**做机制分析，发现存在**「相位特化」**：不同注意力组件对检索**不同源相位**信息的贡献不对称；随后对理想化检索模型的分析显示，**梯度流动态可能偏好尖锐的相位特化**。论文结论很硬：**评测分块 KV 压缩的模型，必须跨相位测量——高平均准确率可与系统性位置失败并存。** 量子位补充的 **DeepSeek 具体数字**：**DeepSeek-V4-Flash-Base 不同位置最大差 40.2 个百分点**、**V4-Pro-Base 34.8 pp**；后训练后收窄为 **V4-Flash-0731 19.1 pp**、**V4-Pro-0813 14.8 pp**、**V4.1-Flash-0910 6.1 pp**；且**波动周期 V4 为 4 个 token、V4.1 为 2 个 token**，恰对应**两代模型各自的压缩步长**。
+
+> 认知价值：**① 它把「DeepSeek 时强时弱」从玄学变成了机制。** 以前遇到同一题换个无关字符就答错，只能归因「模型抽风」；这篇给出了可复算的解释：**为省内存而做的分块 KV 压缩，给每个 token 派了一个「相位」，而模型对不同相位的信息检索能力天然不对称**——**省内存的优化，引入了一种新的失败模式。** 这条对我们做推理优化的人尤其重要：**优化技术不是白拿的，它有代价，代价往往藏在「平均分看不到的地方」。** **② 最大的方法论价值是那句「平均分掩盖弱区」。** 这与我们 10-08 ⑤（PaperBenchX：分阶段平均 42.8% 掩盖验证短板）**完全同源**——**2026 年 10 月的评测教训在反复出现：一个总分/一个平均值，正在系统性地藏住失败。** 以后评长上下文模型，**必须跨「位置/相位」扫描**，而不是看单点命中率。**③ 数字要分层读：** 「40 个百分点」是**论文摘要自述**（🟢）；而 **40.2 / 34.8 / 19.1 / 14.8 / 6.1** 这组 DeepSeek 专属数字来自**量子位的转述**（🟡）——论文摘要只说「up to 40 percentage points」，**具体到 DeepSeek 的分档值请按媒体口径记**。**④ 一条亮色：** 后训练与架构迭代确实能把差距从 **40.2 pp 压到 6.1 pp**——**问题可缓解，但周期仍在**；这给了「后训练能补多少」一个可量化的样本。
+
+> 领域：eval-evidence ｜ 去向：related（挂钩 2026-10-08 ⑤ PaperBenchX「平均分掩盖失败」同源线；喂养「长上下文 / 推理优化与评测陷阱」待命选题）｜ 等级：🟢
+
+> 来源：🟢 一手已核（10-09 直读 arXiv 摘要页原文）https://arxiv.org/abs/2609.36322 《Periodic Weak Spots: Phase Sensitivity from Chunked KV-Cache Compression》，**Submitted on 28 Sep 2026**（提交日实际发生日写作 **2026-09-28**）——摘要原文（phase 定义、up to 40 percentage points、从零预训练复现、因果干预下的 phase specialization、梯度流偏好、评测结论）｜🟡 DeepSeek 专属数字为媒体转述（10-09 直读）量子位《字节找到了DeepSeek时强时弱的原因》2026-10-09 15:11 https://www.qbitai.com/2026/10/502364.html （V4-Flash-Base 40.2 pp / V4-Pro-Base 34.8 pp / 后训练 19.1、14.8、6.1 pp；周期 4→2 token 对应压缩步长；FP8 代码补全案例 8 vs 32、概率 71.3%/26.4% 与 91.5%/7.2%）｜论文链接经量子位给出为 `arxiv.org/pdf/2609.36322`，与 abs 页一致｜**日期说明：论文 2026-09-28 上传，量子位 10-09 报道**，正文已按实际发生日标注
+
+Now sections ④ and ⑤ (lines 35-53), plus lines 55-59 (素材覆盖说明 and 一手核清单).
+exec
+/bin/zsh -lc "cd <workdir>/input && sed -n '35,53p' radar-2026-10-09.md" in <workdir>/
+ succeeded in 0ms:
+## ④ AgentGarten：把「代码世界」接上神经渲染器，让智能体在实时试炼场里边玩边进化（arXiv 2026-10-08）
+
+**MirroS 团队**于 **2026-10-08** 发布 **AgentGarten**（技术报告 **arXiv 2610.12374，提交 2026-10-08**；代码 **MirroS-Lab/AgentGarten**，**Apache-2.0**、**89★**、created **2026-10-08**；渲染器 checkpoint 放 HF，项目页 `mirros-lab.github.io/agent-garten`，博客 `mirros.ai/blog`）。它要解决一个两难：智能体要学东西，环境必须**既真实（faithful：状态、规则、动力学一致）又写实（realistic：观测符合真实世界的视觉分布）**，而两者兼得是瓶颈。AgentGarten 的分工是——**模拟器/游戏引擎维持持久世界状态、执行程序化交互规则（管物理）；一个共享神经渲染器从各世界通过统一接口导出的深度与表面法线，生成智能体的视觉观测（管光影）**，做到 **>30 fps 实时交互**。渲染器做法：把**预训练视频模型**适配到**几何条件**上，用其提出的 **Adversarial Forcing** 蒸馏（**让 history prefilling 通过精确重放可微**，从而让后续预测的损失反传、更新渲染器**如何编码先前观测**；再叠加真实数据的对抗监督提升画质），并针对实时交互优化推理。在这一环境里，智能体**每轮把经验蒸馏成 playbook**，供后续 agent 继承与精炼。经典**捉迷藏（hide-and-seek）**复现：**躲藏者第 4 轮学会搬挡板搭掩体、搜寻者第 10 轮学会借坡道翻墙**（据称重做了 **2500 万局**）；捉迷藏场景中的策略如「搬挡板封堵掩体、架坡道翻越高墙、首跳失误后主动调整重试」。
+
+> 认知价值：**① 这条的题眼是「环境的成本结构」被改了。** 过去要造 100 个写实仿真环境，得靠美术团队建模、贴皮、打光（**美术劳动密集型**）；AgentGarten 只要能输出**简单的三维深度与法线**，任何极简代码场景都能**直接套用同一个神经渲染器**拿到写实光影——**环境扩充从「劳动密集」变成「代码程序化」**。对任何想做 agent 训练/评测的人来说，这是**分母级**的改善。**② 「物理交给代码、光影交给神经模型」是对世界模型路线的一个务实折中。** 纯视频世界模型画面漂亮，但**物理是隐式的、不可查询、不可干预**（倒不出「杯里还剩多少水」，也写不了任务裁判规则）；纯代码引擎状态精确却画面粗糙。把两者按「确定性 vs 观感」切开，等于**只要代码环境能被查询和裁判，训练环境就不是黑盒**——这和我们做评测时「不认输出、只认重放」的纪律是同一思路。**③ 与我们既有线的接口很清晰：** 它和 10-06 ③ HERA、10-07 ⑤ AdvSim2Real 同属「**harness / 环境共演化**」家族——**agent 能力的上限，越来越由它练手的环境决定**。这条可留作一期「智能体训练环境与自我进化」选题的主料。**④ 读法：** 论文/仓库事实 🟢；但「2500 万局」「第 4/10 轮学会」等具体战绩出自**作者自述与量子位转引**，**按 🟡 记**，不必当独立复核的数字搬。
+
+> 领域：agent-frameworks ｜ 去向：feeds（喂养「智能体训练环境与自我进化」选题；可与 10-06 ③ HERA、10-07 ⑤ AdvSim2Real 的 harness/环境共演化家族并期）｜ 等级：🟢
+
+> 来源：🟢 一手已核（10-09 直读 arXiv 摘要 + GitHub API + README 原文）https://arxiv.org/abs/2610.12374 《AgentGarten: Code Worlds for Evolving Agents》，**Submitted on 8 Oct 2026**（`Adversarial Forcing`、exact replay 使 history prefilling 可微、renderer 由预训练视频模型适配几何条件）｜https://api.github.com/repos/MirroS-Lab/AgentGarten （Apache-2.0、89★、created 2026-10-08T03:53Z、pushed 2026-10-09T06:40Z、Python；README 原文「Code determines how the world changes, and the renderer learns how those changes should look.」、HF checkpoints、paper 徽标指向 2610.12374）｜🟡 「2500 万局 / 第 4、10 轮学会 / >30 fps」等战绩转引（10-09 直读）量子位《代码造世界，扩散绘现实：AgentGarten让智能体在实时试炼场中边玩边进化》2026-10-09 10:03 https://www.qbitai.com/2026/10/502096.html
+
+## ⑤ 联想 TianxiCode 配 DeepSeek-v4.1-Flash 登顶 SWE-bench-Live（Lite），71% 通过官方 Verified 审核（厂商口径 2026-10-09）
+
+量子位 **2026-10-09 16:53** 刊出（**注明「本文由联想提供，量子位获授权转载」**）：联想天禧 AI 自研的**代码智能体框架 TianxiCode** 配合 **DeepSeek-v4.1-Flash**，在 **SWE-bench-Live（Lite 分榜）** 以 **71% 的问题解决率登顶全球第一**，并**通过官方「Verified」核验**（要求提交**全链路智能体运行轨迹**，由官方审查评测输入与信息隔离、排查是否向智能体泄露标准答案/测试用例）。官方口径把系统拆成两半：**DeepSeek-v4.1-Flash 是「大脑」（读代码、理解语义、构思解法），TianxiCode 是「眼、手、工具箱与工作流规范」**；强调三项工程能力——**跨文件多跳检索 + 精准上下文管理（Context Pruning & Slicing）**、**自驱动规划 + 多轮工具调用**、**闭环补丁生成 + 测试驱动自愈**（在隔离环境自动跑码，报错或破坏其他功能就自我反思修改至通过）。天禧 AI 称该能力未来将落到联想 AI 硬件产品中。
+
+> 认知价值：**① 这条的看点不是「中国厂商拿了第一」，而是它把「harness 决定成绩」又一次摆上台面。** 官方自己的对比逻辑是：**「再聪明的模型，离开能敲代码、查日志的『手』和严谨工作习惯，也解决不了复杂工程里的 Bug」**——**同一个 DeepSeek-v4.1-Flash，配上不同工程框架，结果不同。** 这与我们 10-08 ③（Docker Agent：**harness 之间拼的是生态与分发，不是技术壁垒**）是同一判断的两面：**模型越来越是一件可替换的「耗材」，真正的差异化在 harness（检索/规划/自愈的工程闭环）。** **② 「Verified」机制值得单独记一笔。** SWE-bench-Live 从 2026-08 起加强提交核验、**要求交轨迹以证明答案隔离**——这是评测界对「刷榜/污染」的制度性回应，方向正确，我们可以把它当成「**什么才叫可信的 agent 榜单**」的样例。**③ 但读法必须保守：** 这是**厂商 PR**，**71% 未经第三方独立复核**，也没有公开可跑的复现物；因此**整条按 🟡 处理**——**「71% 全球第一」只当厂商口径记，不当行业事实搬。** 若要成选题，下一步应回 **SWE-bench-Live 官方榜单**核该条记录，再决定是否升级为 🟢。**④ 对我们的直接含义：** 这条和中国模型（DeepSeek）＋工程框架的组合，正好是「**效率是衡量标准**」的一个国内样本——**同等预算下，工程架构能榨出多少模型潜能**，是我们评测线值得跟的一个方向。
+
+> 领域：eval-evidence ｜ 去向：related（挂钩 2026-10-08 ③ Docker Agent「harness 决定生态」线；喂养「harness × 模型 = 成绩」评测选题）｜ 等级：🟡
+
+> 来源：🟡 厂商口径（10-09 直读）量子位《联想天禧自研代码智能体TianxiCode斩获SWE-bench-Live全球第一》2026-10-09 16:53 https://www.qbitai.com/2026/10/502422.html （**文末注明「本文由联想提供，量子位获授权转载」**；71% 通过率、Lite 分榜、Verified 核验、三项工程能力、TianxiCode 定位与将落地联想硬件）｜🟢 背景已核：SWE-bench-Live 官方站点声明「2026-08 起加强提交核验、要求提交 agent rollout trajectories 以保证答案隔离」 https://swe-bench-live.github.io/ （说明 Verified 机制真实存在；但**本站未在本轮抓到 TianxiCode 的榜单记录**，71% 仍属厂商口径）｜⚠️ 无第三方复核、无公开复现物 → 整条 🟡
+
+Now let me also read lines 55-59 (素材覆盖说明 and 一手核清单) to understand what's already verified and what remains to check. This informs the 待核清单.
+exec
+/bin/zsh -lc "cd <workdir>/input && sed -n '55,59p' radar-2026-10-09.md" in <workdir>/
+ succeeded in 0ms:
+*素材覆盖说明（非正文）：
+
+**本期主源与窗口**：窗口 **2026-10-08 18:00 → 10-09 18:00（北京时间）**。中文源：量子位 WP REST 直查（10-09 18:00）当日新稿 **12 条**（10-09 08:16 谷歌 Gemini Agent / 08:35 陶哲轩宣战 / 10:03 AgentGarten / 10:37 openJiuwen AgentOS / 10:51 尊界刹车 / 11:52 清华星动纪元 VPP2 / 12:15 Sharpa / 14:28 柳叶刀 AI 医患 / 15:11 字节 DeepSeek 相位敏感性 / 16:47 因果智能 / 16:53 TianxiCode / 17:19 TRAE 融合），另含 10-08 当晚 3 条（18:23 联想 YOGA RTX Spark / 20:43 正行创新 / 21:28 GTA6 用 AI）。本期主源以**英文一手**为主：Google Cloud 官方博客、Cactus 官方博客 + GitHub API、arXiv API（2609.36322 / 2610.12374）、HN Algolia API、OpenRouter 模型 API、SWE-bench-Live 官方站点。
+
+**一手核清单（均 10-09 直读）**：cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026（全文；`datePublished` **2026-10-08**）｜cactuscompute.com/blog/whistle（全文；release、架构、基准表、M4 Pro CPU 测法、测音不入训练集声明）｜api.github.com/orgs/cactus-compute/repos（needle 13,669★ / cactus 6,113★）｜arxiv.org/abs/2609.36322（摘要原文，Submitted **28 Sep 2026**）｜arxiv.org/abs/2610.12374（摘要原文，Submitted **8 Oct 2026**）｜api.github.com/repos/MirroS-Lab/AgentGarten（元信息 + README 原文）｜hn.algolia.com（front_page + search：Whistle 766/152、DeepSeek-freak-out 765/638、Step 5 127/31）｜openrouter.ai/api/v1/models（step-5-preview 1M ctx、$1/$2.7 per M）｜swe-bench-live.github.io（官方 Verified 核验机制声明）。**检索路径与坑**：① Google 博客的候选短 URL `/…/introducing-gemini-agent` **404**，正确路径为 `/…/welcome-to-gemini-at-work-2026`（经 web_search 定位）；Google 博客 curl **必须带浏览器 UA** 才能取到 `<article>` 正文。② **`web_extract` 工具对 cloud.google.com / cactuscompute.com / mirros.ai 一律返「Blocked: private or internal network address」（探测误判）**，改 curl + UA 直读。③ arXiv **`id_list=` 参数本轮仍不稳**，改用 `search_query=` 定位（phase 论文即如此命中）；单篇摘要走 `arxiv.org/abs/<id>` 直读稳定。④ 量子位走 WP REST（带 UA）。⑤ SWE-bench-Live 榜单页为 JS 渲染，本轮**未抓到 TianxiCode 记录**（故 ⑤ 严格留 🟡）。
+
+I have the full picture. Now write two sections:
+
+**要点** — 5 items, each ≤40 characters (Chinese chars), each must contain a proper noun from the text.
+
+Let me draft:
+
+1. Gemini agent：Coworker 带邮箱与四种记忆，Claude 可换 — count chars.
+Let me count: "Gemini agent 给 Coworker 邮箱、四种记忆，底层模型含 Claude 可热替换" — too long probably. Keep under 40 chars. Let's count carefully. Chinese characters plus latin tokens... "不超过 40 字" — treat as ~40 characters/字. I'll aim for roughly ≤40 characters counting each Latin word as one word-ish. Safer: keep total character count (including letters) modest, under ~40 where letters count as characters? That's strict. Let me interpret 字 as characters; to be safe, keep each bullet around 30-40 characters total, counting Latin letters as characters would be harsh. Hmm.
+
+Common practice: count characters including ASCII. "Gemini agent" = 12 chars. Let's be conservative and count all characters (letters, spaces, punctuation roughly) and stay ≤40.
+
+Draft 1: `Gemini agent 四种记忆 + Claude 可换模型` — count: "Gemini agent 四种记忆 + Claude 可换模型" → Gemini(6)+space(1)+agent(5)=12, +space=13, 四种记忆=17, space=18, +=19, space=20, Claude=26, space=27, 可换模型=31. 31 chars. Good.
+
+But must convey point. Maybe: `Gemini agent：Coworker 有邮箱，模型可换含 Claude` → count: Gemini agent：= 6+1+5+1=13; Coworker=8 → 21; space → 22; 有邮箱，=4 → 26; 模型可换含 =5 → 31; space 32; Claude 6 → 38. 38 chars. OK, just under 40. Hmm "模型可换含 Claude" a bit awkward. Alternative: `Gemini agent：Coworker 带邮箱，底层可换 Claude` → 13+8=21, space 22, 带邮箱，4 →26, 底层可换 4 →30, space31, Claude6 →37. Good: 37 chars.
+
+Draft 2 (Cactus Whistle): `Cactus Whistle：16.9 MB 端侧 ASR，纯 CPU 跑七语言` → Cactus(6)+space=7+Whistle(7)=14+：=15+16.9(4)=19+space=20+MB=22+space=23+端侧=25+space=26+ASR=29+，=30+纯=31+space=32+CPU=35+space=36+跑七语言=40. Exactly 40. Slightly risky. Shorten: `Cactus Whistle：16.9 MB 纯 CPU 端侧 ASR，七语言` → 15+4=19+1=20+MB=22+1=23+纯=24+1=25+CPU=28+1=29+端侧=31+1=32+ASR=35+，=36+七语言=39. 39. Hmm still. Or drop "端侧": `Cactus Whistle：16.9 MB 单文件跑 CPU，覆盖七语言` → Gemini... count: Cactus Whistle：=15; 16.9=19; space=20; MB=22; space=23; 单文件跑=27; space=28; CPU=31; ，=32; 覆盖七语言=37. 37 chars. Good, and conveys point (single-file, CPU, seven languages).
+
+Draft 3 (ByteDance Seed / DeepSeek phase): `字节 Seed：分块 KV 压缩让检索率差 40 pp` → 字节(2)+space(1)=3+Seed(4)=7+：=8+分块(2)=10+space=11+KV(2)=13+space=14+压缩让检索率差(7)=21+space=22+40=24+space=25+pp=27. 27 chars. Good. Maybe add "相位" concept: `字节 Seed：分块 KV 压缩造成相位敏感，检索率差 40 pp` → 3+1(：)... let's count: 字节 Seed：=8; 分块=10; sp=11; KV=13; sp=14; 压缩造成相位敏感，=9 →23; 检索率差=4 →27; sp=28; 40=30; sp=31; pp=33. 33 chars. Good and richer.
+
+Draft 4 (AgentGarten / MirroS): `MirroS AgentGarten：代码管物理，神经渲染器管光影` → MirroS(6)+sp=7+AgentGarten(11)=18+：=19+代码管物理，=6 →25+神经渲染器管光影=8 →33. 33 chars. Good.
+
+Draft 5 (Lenovo TianxiCode): `联想 TianxiCode 配 DeepSeek-v4.1-Flash 登 SWE-bench-Live 首` — too long. Let me count: 联想(2)+sp=3+TianxiCode(10)=13+sp=14+配=15+sp=16+DeepSeek-v4.1-Flash(19)=35+... too long already. Simplify: `联想 TianxiCode 登顶 SWE-bench-Live Lite，71%` → 联想=2, sp=3, TianxiCode=13, sp=14, 登顶=16, sp=17, SWE-bench-Live(14)=31, sp=32, Lite=36, ，=37, 71%=40. Exactly 40. Hmm. Alternative: `联想 TianxiCode 登 SWE-bench-Live 榜首（71%，厂商口径）` longer. 
+
+Maybe: `联想 TianxiCode：SWE-bench-Live 71% 登顶` → 2+1=3+10=13+1=14+14=28+1=29+3=32(71%)+1=33+登顶=35. 35 chars. Good. Add "厂商口径"? would exceed. Keep 35 and mention PR nature in 待核清单. Actually maybe: `联想 TianxiCode 夺 SWE-bench-Live 71%（PR 口径）` → 2+1+10=13+1=14+夺=15+1=16+SWE-bench-Live=30+1=31+71%=34+（=35+PR=37+1=38+口径=40+）=41. 41 — over. Use `联想 TianxiCode：SWE-bench-Live 71%，厂商口径` → 3+10=13+：=14+SWE-bench-Live=28+sp=29+71%=32+，=33+厂商口径=37. 37 chars. Good — includes proper nouns 联想/TianxiCode/SWE-bench-Live and flags it's vendor claim.
+
+Now **待核清单** — 3 items, each saying what to verify and why. Based on the doc's own 🟡 flags and gaps:
+
+1. SWE-bench-Live 官方榜单是否有 TianxiCode 71% 记录（本轮榜单页 JS 渲染未抓到）——因为整条目前只有联想供稿的量子位转载，无第三方复核与复现物；核到才能从 🟡 升 🟢，否则「全球第一」不能当行业事实搬。
+
+2. 量子位转述的 DeepSeek 分档数字（V4-Flash-Base 40.2 pp / V4-Pro-Base 34.8 pp / 后训练 19.1、14.8、6.1 pp，周期 4→2 token）——因为 arXiv 2609.36322 摘要只写 "up to 40 percentage points"，具体分档值属媒体口径；要么回论文正文/表格核，要么在成稿里保留 🟡 标注，避免把媒体转述当论文一手结论。
+
+3. Google Gemini agent 的规模与客户数字（近 500 家客户各超 1 万亿 token、近 90% Fortune 100、PayPal 每周 1000 万次多模型路由、Bradesco 1 小时→5 分钟）——因为全部是 Google 自报，无第三方来源；写进企业 agent 选型稿时若引用需明确标厂商口径，或找客户侧/分析机构佐证。
+
+Also could mention: AgentGarten 战绩（2500 万局、第 4/10 轮学会、>30 fps）与 Whistle WER 基准口径。But need only 3. Maybe pick the three highest value. Alternatively include Whistle WER cross-vendor benchmark comparison as third. Which 3 are best? The doc's own gaps: ⑤ TianxiCode leaderboard record (explicit "下一步应回官方榜单核"), ③ DeepSeek specific numbers (media), ④ AgentGarten 战绩 (author self-report), ② WER 口径 (vendor self-test), ① Google self-reported numbers.
+
+I'll choose: (1) SWE-bench-Live TianxiCode record — most concrete, blocks a 🟡→🟢 upgrade; (2) DeepSeek 分档数字 — paper vs media, affects a 🟢 item's credibility; (3) Whistle WER 基准口径 or Google 自报数字. Hmm. Which is more valuable for a "企业 agent 选型" episode (ep18-enterprise-agent-selection)? The Google self-reported numbers matter for enterprise selection claims. But the Whistle one is about benchmark hygiene. Given the workspace is "enterprise-agent-selection", I'd pick Google 自报数字 as third. Actually maybe combine: third item on Google 数字（含 PayPal/Bradesco）— yes, tie to enterprise selection.
+
+Each item: 说明要核什么 + 为什么. Keep concise. Format per instructions: two sections with headers 『要点』and 『待核清单』 as user specified. Use `**要点**` style headers? The system says headers start with ** and end with **, title case. User asked for 『要点』and 『待核清单』. I'll write `**要点**` and `**待核清单**`.
+
+No blank line before first bullet under header.
+
+Also no preamble fluff, no full recap. Keep it tight.
+
+Let me double-check char counts one more time for each bullet, counting conservatively (all characters including spaces and punctuation):
+
+1. `Gemini agent：Coworker 带邮箱，底层可换 Claude`
+G-e-m-i-n-i(6) space(7) a-g-e-n-t(12) ：(13) C-o-w-o-r-k-e-r(21) space(22) 带(23)邮(24)箱(25)，(26) 底(27)层(28)可(29)换(30) space(31) Claude(37). ✅ 37.
+
+But does it capture the key point? "四种记忆" is the distinctive bit. Maybe: `Gemini agent：Coworker 有邮箱、四种记忆，可换 Claude` → count: Gemini agent：=13, Coworker=21, space=22, 有邮箱、=26 (有23,邮24,箱25,、26), 四种记忆=30, ，=31, 可换=33, space=34, Claude=40. Exactly 40. Risky but "不超过 40" — 40 is allowed. Hmm, let me trim: `Gemini agent：Coworker 有邮箱与四种记忆，可换 Claude`— longer. 
+
+Alternative: `Gemini agent 给 Coworker 邮箱与四种记忆，可换 Claude` → Gemini(6)sp(7)agent(12)sp(13)给(14)sp(15)Coworker(23)sp(24)邮箱与四种记忆(31)，(32)可换(34)sp(35)Claude(41) = 41. Over.
+
+Use `Gemini agent：Coworker 有邮箱、四种记忆，可换 Claude` = 40. Or drop "有": `Gemini agent：Coworker 带邮箱、四种记忆，可换 Claude` = 40 too. Alternatively use "四种记忆" and drop Claude: `Gemini agent：Coworker 有邮箱、四种记忆，模型可换` → 13+8=21+1=22+有邮箱、=26+四种记忆=30+，=31+模型可换=35. 35 chars ✅. And Claude mention is lost, but "模型可换" implies. Hmm, Claude is a notable proper noun. Which is more important? The point that it can dynamically call Claude is striking. Let me do: `Gemini agent：四种记忆 + Coworker 邮箱，可换 Claude` → Gemini agent：=13, 四种记忆=17, sp=18, +=19, sp=20, Coworker=28, sp=29, 邮箱=31, ，=32, 可换=34, sp=35, Claude=41. 41. Over.
+
+Simplify with Chinese "四种记忆、Coworker 邮箱，模型可换 Claude":
+`Gemini agent：Coworker 邮箱 + 四种记忆，可换 Claude` → 13 + Coworker(8)=21 + sp=22 + 邮箱=24 + sp=25 + +=26 + sp=27 + 四种记忆=31 + ，=32 + 可换=34 + sp=35 + Claude=41. 41. Ugh.
+
+Drop "agent": `Gemini：Coworker 邮箱 + 四种记忆，底层可换 Claude` → Gemini=6, ：=7, Coworker=15, sp=16, 邮箱=18, sp=19, +=20, sp=21, 四种记忆=25, ，=26, 底层可换=30, sp=31, Claude=37. ✅ 37 chars. But proper noun "Gemini" alone is fine — the text's专名 is "Gemini agent". Using Gemini is still a proper noun from the text. Good. Maybe better: `Gemini agent：Coworker 邮箱与四种记忆，可换 Claude`= 13+8=21+1=22+邮箱与四种记忆(7)=29+，=30+可换=32+1=33+Claude=39 ✅ 39 chars. That's clean and keeps "Gemini agent". Let me recount: 
+- "Gemini" 6
+- " " 7
+- "agent" 12
+- "：" 13
+- "Coworker" 21
+- " " 22
+- "邮" 23 "箱" 24 "与" 25 "四" 26 "种" 27 "记" 28 "忆" 29
+- "，" 30
+- "可" 31 "换" 32
+- " " 33
+- "Claude" 39
+✅ 39. 
+
+2. `联想 TianxiCode：SWE-bench-Live 71%，厂商口径` = 37 ✅ (recount: 联想=2, sp=3, TianxiCode=13, ：=14, SWE-bench-Live = S,W,E,-,b,e,n,c,h,-,L,i,v,e = 14 chars → 28, sp=29, 71%=32, ，=33, 厂商口径=37 ✅).
+
+Good. Final answer now. No tool-based writing needed — just output text.
+
+For 待核清单, keep each item: 核什么 + 为什么. Use backticks for paths/URLs.
+
+Length: reasonably concise.
+codex
+**要点**
+- `Gemini agent`：Coworker 邮箱与四种记忆，可换 Claude
+- Cactus Whistle：16.9 MB 单文件跑 CPU，覆盖七语言
+- 字节 Seed：分块 KV 压缩造成相位敏感，检索率差 40 pp
+- MirroS AgentGarten：代码管物理，神经渲染器管光影
+- 联想 TianxiCode：SWE-bench-Live 71%，厂商口径
+
+**待核清单**
+- 核 `swe-bench-live.github.io` 榜单是否有 TianxiCode 71% 的 Verified 记录（本轮因 JS 渲染未抓到）：现证据只有联想供稿、量子位转载，无第三方复核与复现物；核到才能把 ⑤ 从 🟡 升 🟢，否则「全球第一」只能当厂商口径，不能进企业选型结论。
+- 核 arXiv 2609.36322 正文/表格是否给出 DeepSeek 分档值（V4-Flash-Base 40.2 pp、V4-Pro-Base 34.8 pp、后训练 19.1 / 14.8 / 6.1 pp，周期 4→2 token）：摘要只写 up to 40 percentage points，这组分档来自量子位转述；③ 整条标 🟢，若把媒体数字当论文一手结论搬，会污染该条的证据等级。
+- 核 Google 自报的规模与客户数字（近 500 家客户各超 1 万亿 token、近 90% Fortune 100、PayPal 每周 1000 万次多模型路由、Bradesco 1 小时→5 分钟）：全部出自 Google 单方口径，无客户侧或分析机构佐证；而 ① 正是「企业 agent 选型清单」的主料，引用效果百分比前需确认口径或改为客户自述来源。
+tokens used
+24,155
+

@@ -1,0 +1,10 @@
+$ ~/workspace/agentscope-test/.venv/bin/python <workdir>/t3.py
+--- exit=0  1.1s  2026-10-13T16:06:34 ---
+STDOUT:
+收到
+
+[elapsed] 0.5s
+
+
+STDERR:
+

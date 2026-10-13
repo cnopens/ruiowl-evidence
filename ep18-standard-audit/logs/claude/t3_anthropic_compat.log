@@ -1,0 +1,9 @@
+$ claude -p 只回复：收到 --output-format text --settings /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/claude-ep18-0ab82eip.json
+--- exit=0  2.2s  2026-10-13T16:08:29 ---
+STDOUT:
+收到
+
+
+STDERR:
+[claude-code:unrecognized_model] {"model":"deepseek-v4-flash","query_source":"sdk"}
+

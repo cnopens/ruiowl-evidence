@@ -1,0 +1,7 @@
+$ bash -lc rm -rf /tmp/ep18-portable/claude/skills && cp -R ~/.claude/skills /tmp/ep18-portable/claude/skills
+--- exit=0  0.1s  2026-10-13T16:08:39 ---
+STDOUT:
+
+
+STDERR:
+

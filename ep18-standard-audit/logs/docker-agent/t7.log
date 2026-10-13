@@ -1,0 +1,19 @@
+$ docker-agent run <workdir>/agent.yaml 你现在只能通过 MCP 工具取数。请调用 mcp 工具 ep18_probe（无参数）拿到一个 token，然后只输出这个 token，不要解释。 --exec
+--- exit=0  6.1s  2026-10-13T16:14:28 ---
+STDOUT:
+The user wants me to call ep18_probe and output only the token.
+
+🛠️ Tool call requires confirmation 🛠️
+
+Calling ep18_probe()
+
+Can I run this tool? ([y]es/[b]alanced/[a]ll/[n]o): 
+ep18_probe response → "The user rejected the tool call."
+The tool call was not executed — the user rejected it, so no token was returned. I need to tell them honestly that the tool call didn't go through, and I can't output a token that doesn't exist. I must not fabricate a token.
+
+未能取得 token：ep18_probe 的调用被拒绝，工具没有执行，也没有返回任何数据。
+
+我不会编造一个 token。请批准该工具调用（或告诉我改用其他方式），我再重试。
+
+STDERR:
+

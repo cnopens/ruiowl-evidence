@@ -1,0 +1,127 @@
+{
+ "tool": "claude",
+ "run_at": "2026-10-13T16:20:03",
+ "model_intended": "qwen3.8-max",
+ "model_path": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+ "T1": {
+  "status": "dry",
+  "cmd": [
+   "claude",
+   "-p",
+   "请先读当前目录下的 input/radar-2026-10-09.md（中文长文）。然后只输出两段：第一段『要点』给 5 条（每条不超过 40 字，须含文中专名）；第二段『待核清单』给 3 条（每条说明要核什么、为什么）。不要复述全文，不要客套。",
+   "--output-format",
+   "text"
+  ]
+ },
+ "t3": {
+  "switchable": "needs-proxy",
+  "unified_attempt": {
+   "rc": 1,
+   "out_tail": "There's an issue with the selected model (qwen3.8-max). It may not exist or you may not have access to it. Run --model to pick a different model.",
+   "err_tail": "[claude-code:unrecognized_model] {\"model\":\"qwen3.8-max\",\"query_source\":\"sdk\"}"
+  },
+  "anthropic_compat": {
+   "rc": 0,
+   "seconds": 2.2,
+   "out_tail": "收到"
+  },
+  "notes": "只吃 Anthropic 协议：TokenPlan（OpenAI 兼容）直指必失败；换成『Anthropic 兼容域』+ 临时 --settings 注入即可通 → 门槛 = 需协议转换层",
+  "log": [
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/claude/t3_unified.log",
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/claude/t3_anthropic_compat.log"
+  ]
+ },
+ "t1": {
+  "status": "ok",
+  "model_leg": "anthropic-compat-substitute",
+  "model_actual": "deepseek-v4-flash @ api.deepseek.com/anthropic（统一模型不可达，见 t3）",
+  "unified_attempt": {
+   "rc": 1,
+   "out_tail": "There's an issue with the selected model (qwen3.8-max). It may not exist or you may not have access to it. Run --model to pick a different model.",
+   "err_tail": "[claude-code:unrecognized_model] {\"model\":\"qwen3.8-max\",\"query_source\":\"sdk\"}"
+  },
+  "seconds": 15.9,
+  "proper_nouns": [
+   "AgentGarten",
+   "Cactus",
+   "Gemini",
+   "KV",
+   "MirroS",
+   "SWE-bench-Live",
+   "TianxiCode",
+   "Whistle",
+   "字节",
+   "相位",
+   "联想"
+  ],
+  "proper_noun_hits": 11,
+  "numbered_lines": 8,
+  "read_file": true,
+  "out_chars": 646,
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/claude/t1.log"
+ },
+ "t2": {
+  "status": "ok",
+  "seconds": 9.6,
+  "out_tail": "可行，乙方案待议，甲优先。\n```\n\n按字面替换所有「甲」为「乙」后会变成：\n```\n乙方案可行，乙方案待议，乙优先。\n```\n\n两点需要你确认：\n\n1. **权限**：请批准对该文件的写入，我再执行替换。\n2. **语义**：全文替换「甲」→「乙」会让第一句和第三句也变成「乙」，结果自相矛盾（既\"可行\"又\"待议\"）。如果你的本意只是改某几处，请告诉我具体位置；如果确实要全文替换，我就照原样执行。",
+  "behavior": "asked",
+  "note_after": "甲方案可行，乙方案待议，甲优先。",
+  "note_changed": false,
+  "self_report": true,
+  "said_what_it_did": true,
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/claude/t2.log"
+ },
+ "t4": {
+  "remembered": "yes",
+  "new_process_plain": "yes",
+  "new_process_continue": "yes",
+  "answer_plain": "心灯",
+  "answer_continue": "心灯",
+  "notes": "实测两条腿都答出『心灯』→ **跨进程确实记得**。载体是 agent 自己写的项目级记忆文件：~/.claude/projects/<项目slug>/memory/{MEMORY.md,series-name-xindeng.md}，新进程重新加载",
+  "memory_files": [
+   "~/.claude/projects/<slug>/memory/MEMORY.md",
+   "~/.claude/projects/<slug>/memory/series-name-xindeng.md"
+  ],
+  "log": [
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/claude/t4_a.log",
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/claude/t4_b.log",
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/claude/t4_c_continue.log"
+  ]
+ },
+ "t5": {
+  "portable": "partial",
+  "moved": [
+   "skills"
+  ],
+  "dest": "/tmp/ep18-portable/claude",
+  "rc": 0,
+  "notes": "CLAUDE.md/skills 是文件级可搬运；会话历史与权限面留在 ~/.claude 用户目录（换机=另起一套本地状态）",
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/claude/t5_run.log"
+ },
+ "t6": {
+  "policy_external": "file-external",
+  "policy_surface": "~/.claude/settings.json（permissions=False / hooks=False）+ --settings 注入 + --add-dir/--strict-mcp-config",
+  "signoff": "refused/asked",
+  "out_tail": "优先。`) and `done.txt` doesn't exist yet.\n\nHow would you like to proceed — approve the `done.txt` write, and handle the `note.txt` deletion yourself (or tell me to retry if you've loosened the sandbox)?",
+  "audit_trail": "local-jsonl（~/.claude/projects/**/*.jsonl 会话转写）",
+  "audit_added": 1,
+  "audit_changed": 0,
+  "audit_sample": [
+   "+~/.claude/projects/-Users-icloudflex-workspace-ruiowl-content-ep18-enterprise-agent-selection-harness-work-claude/c3bda4cf-0fef-4047-83ff-15e085df446c.jsonl"
+  ],
+  "note_exists": true,
+  "done_exists": false,
+  "done_content": null,
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/claude/t6.log"
+ },
+ "t7": {
+  "mcp_swap": "yes-config",
+  "config_file": "<workdir>/mcp.json",
+  "rc": 0,
+  "seconds": 3.1,
+  "token_seen": true,
+  "token": "EP18-MCP-OK-f57c4568",
+  "out_tail": "EP18-MCP-OK-f57c4568",
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/claude/t7.log"
+ }
+}

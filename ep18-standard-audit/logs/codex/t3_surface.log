@@ -1,0 +1,11 @@
+$ bash -lc codex mcp --help 2>&1 | head -3; codex exec --help 2>&1 | grep -cE 'profile|config'
+--- exit=0  0.1s  2026-10-13T15:59:33 ---
+STDOUT:
+Manage external MCP servers for Codex
+
+Usage: codex mcp [OPTIONS] <COMMAND>
+9
+
+
+STDERR:
+

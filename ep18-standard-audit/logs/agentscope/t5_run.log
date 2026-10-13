@@ -1,0 +1,10 @@
+$ ~/workspace/agentscope-test/.venv/bin/python /tmp/ep18-portable/agentscope/agent_def.py
+--- exit=0  6.7s  2026-10-13T16:06:56 ---
+STDOUT:
+已读
+
+[elapsed] 6.1s
+
+
+STDERR:
+

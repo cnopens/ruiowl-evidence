@@ -1,0 +1,33 @@
+$ codex exec --skip-git-repo-check -c model_providers.tokenplan={name="TokenPlan",base_url="https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",env_key="TP_KEY",wire_api="responses"} -c model_provider=tokenplan -c model="qwen3.8-max" -c mcp_servers.ep18probe.command="python3" -c mcp_servers.ep18probe.args=["~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/mcp/ep18_probe_server.py"] --dangerously-bypass-approvals-and-sandbox 你现在只能通过 MCP 工具取数。请调用 mcp 工具 ep18_probe（无参数）拿到一个 token，然后只输出这个 token，不要解释。
+--- exit=0  14.6s  2026-10-13T16:20:02 ---
+STDOUT:
+EP18-MCP-OK-f57c4568
+
+
+STDERR:
+Reading additional input from stdin...
+OpenAI Codex v0.144.3
+--------
+workdir: <workdir>/
+model: qwen3.8-max
+provider: tokenplan
+approval: never
+sandbox: danger-full-access
+reasoning effort: none
+reasoning summaries: none
+session id: 01a13458-a9a1-7d21-bf41-503fdd2e247d
+--------
+user
+你现在只能通过 MCP 工具取数。请调用 mcp 工具 ep18_probe（无参数）拿到一个 token，然后只输出这个 token，不要解释。
+warning: Model metadata for `qwen3.8-max` not found. Defaulting to fallback metadata; this can degrade performance and cause issues.
+The user wants me to call the MCP tool ep18_probe (no params) and output only the token, no explanation.
+
+mcp: ep18probe/ep18_probe started
+mcp: ep18probe/ep18_probe (completed)
+Just output the token, no explanation.
+
+codex
+EP18-MCP-OK-f57c4568
+tokens used
+10,450
+

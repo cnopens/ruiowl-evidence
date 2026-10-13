@@ -1,0 +1,19 @@
+$ ~/workspace/agentscope-test/.venv/bin/python <workdir>/t6_introspect.py
+--- exit=0  0.3s  2026-10-13T16:06:56 ---
+STDOUT:
+modes: ['DEFAULT', 'ACCEPT_EDITS', 'EXPLORE', 'BYPASS', 'DONT_ASK']
+rule fields: ['tool_name', 'rule_content', 'behavior', 'source']
+workspace backends: ['LocalWorkspace', 'DockerWorkspace', 'E2BWorkspace', 'K8sWorkspace', 'BubblewrapWorkspace']
+skill loader: Initialize the loader with the directory.
+
+        Args:
+            directory (`str`):
+                The directory to load skills from.
+            scan_subdir (`bool`, defaults to False):
+                Whether to scan subdirectories. Defaults to False (only
+                scan current directory).
+        
+
+
+STDERR:
+

@@ -1,0 +1,6 @@
+- id: agent-default-model
+  config:
+    provider: openai
+    model: deepseek-v4-flash
+    baseUrl: https://api.deepseek.com/v1
+    apiKeyEnv: DEEPSEEK_API_KEY

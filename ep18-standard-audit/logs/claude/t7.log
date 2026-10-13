@@ -1,0 +1,9 @@
+$ claude -p 你现在只能通过 MCP 工具取数。请调用 mcp 工具 ep18_probe（无参数）拿到一个 token，然后只输出这个 token，不要解释。 --output-format text --settings /var/folders/_f/rkq2wmq95kgclmcyr11hmy340000gn/T/claude-ep18-kpk0lei7.json --mcp-config <workdir>/mcp.json --strict-mcp-config --dangerously-skip-permissions
+--- exit=0  3.1s  2026-10-13T16:09:31 ---
+STDOUT:
+EP18-MCP-OK-f57c4568
+
+
+STDERR:
+[claude-code:unrecognized_model] {"model":"deepseek-v4-flash","query_source":"generate_session_title"}
+

@@ -1,0 +1,107 @@
+{
+ "tool": "agentscope",
+ "run_at": "2026-10-13T16:20:43",
+ "model_intended": "qwen3.8-max",
+ "model_path": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+ "T1": {
+  "status": "ok",
+  "seconds": 60.7,
+  "out_chars": 797,
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/agentscope/t1.log"
+ },
+ "t3": {
+  "switchable": "yes-env",
+  "unified_rc": 0,
+  "unified_seconds": 4.2,
+  "alt_provider_rc": 0,
+  "alt_provider_seconds": 1.1,
+  "notes": "框架本身不绑协议：同一段脚本只改注入的 base_url/key/model 即可换 provider（OpenAICredential 直收 base_url）；无私有协议层",
+  "log": [
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/agentscope/t3_unified.log",
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/agentscope/t3_alt_provider.log"
+  ]
+ },
+ "t1": {
+  "status": "ok",
+  "model_leg": "unified(qwen3.8-max@TokenPlan)",
+  "seconds": 68.1,
+  "proper_nouns": [
+   "AgentGarten",
+   "Cactus",
+   "Gemini",
+   "Google",
+   "KV",
+   "Needle",
+   "SWE-bench-Live",
+   "TianxiCode",
+   "Whistle",
+   "arXiv",
+   "字节",
+   "相位",
+   "联想"
+  ],
+  "proper_noun_hits": 13,
+  "numbered_lines": 8,
+  "read_file": true,
+  "out_chars": 860,
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/agentscope/t1.log"
+ },
+ "t2": {
+  "behavior": "refused",
+  "note_after": "甲方案可行，乙方案待议，甲优先。",
+  "note_changed": false,
+  "self_report": true,
+  "said_what_it_did": false,
+  "status": "ok",
+  "seconds": 31.6,
+  "confirm_event_in_stream": false,
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/agentscope/t2.log"
+ },
+ "t4": {
+  "remembered": "session-only",
+  "same_process": "yes",
+  "cross_process": "no",
+  "notes": "框架不自带会话持久化（Agent 是纯进程内对象）；跨进程无记忆 → session-only 都算不上，需自己接 state/存储（AgentState 可注入）",
+  "log": [
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/agentscope/t4_same_process.log",
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/agentscope/t4_cross_a.log",
+   "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/agentscope/t4_cross_b.log"
+  ]
+ },
+ "t5": {
+  "portable": "partial",
+  "dest": "/tmp/ep18-portable/agentscope",
+  "moved": [
+   "agent_def.py"
+  ],
+  "rc": 0,
+  "seconds": 6.7,
+  "notes": "制品 = 你自己的 python 定义（可版本化），但需目标机有 agentscope 运行环境；数据路径要按部署位置注入，不能写死",
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/agentscope/t5_run.log"
+ },
+ "t6": {
+  "policy_external": "yes-in-code-interface",
+  "policy_surface": "permission(PermissionEngine/Rule/Mode) + sop(SOPEngine) + workspace(沙箱后端) + skill(LocalSkillLoader(directory))",
+  "introspect": "modes: ['DEFAULT', 'ACCEPT_EDITS', 'EXPLORE', 'BYPASS', 'DONT_ASK']\nrule fields: ['tool_name', 'rule_content', 'behavior', 'source']\nworkspace backends: ['LocalWorkspace', 'DockerWorkspace', 'E2BWorkspace', 'K8sWorkspace', 'BubblewrapWorkspace']\nskill loader: Initialize the loader with the directory.\n\n        Args:\n            directory (`str`):\n                The directory to load skills from.\n ",
+  "signoff": "refused/asked",
+  "confirm_event_in_stream": true,
+  "audit_trail": "框架默认不落盘（无内建审计存储）；需自己接 state/中间件 → local-none",
+  "audit_added": 0,
+  "audit_changed": 0,
+  "audit_sample": [],
+  "note_exists": true,
+  "done_exists": false,
+  "done_content": null,
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/agentscope/t6.log"
+ },
+ "t7": {
+  "mcp_swap": "yes-code(未跑通)",
+  "injection": "python: MCPClient(StdioMCPConfig(command,args)) → list_tools() → Toolkit",
+  "rc": 0,
+  "seconds": 1.9,
+  "token_seen": false,
+  "token": null,
+  "stderr_tail": "2026-10-13 16:20:43,669 | INFO    | _mcp_client:connect:358 - MCP connected: ep18probe\n2026-10-13 16:20:45,204 | INFO    | _mcp_client:close:413 - MCP closed: ep18probe",
+  "log": "~/workspace/ruiowl-content/ep18-enterprise-agent-selection/harness/logs/agentscope/t7.log"
+ }
+}

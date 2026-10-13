@@ -1,0 +1,8 @@
+$ dsh --profile headless 只回复：收到
+--- exit=0  1.3s  2026-10-13T16:07:50 ---
+STDOUT:
+收到
+
+
+STDERR:
+
